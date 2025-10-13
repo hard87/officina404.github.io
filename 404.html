@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página Não Encontrada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos básicos para a página 404 */
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .error-code {
+            font-size: 10rem;
+            font-weight: 700;
+            color: #00FF7F; /* Verde neon principal */
+            text-shadow: 0 0 5px #00FF7F, 0 0 10px #00FF7F, 0 0 20px #00FF7F;
+            margin: 0;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            margin-top: 0;
+            color: #FFFFFF;
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .btn-neon {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            border: 2px solid #00FF7F;
+            border-radius: 5px;
+            color: #00FF7F;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px #00FF7F, inset 0 0 5px #00FF7F;
+        }
+
+        .btn-neon:hover {
+            background-color: #00FF7F;
+            color: #121212;
+            box-shadow: 0 0 20px #00FF7F, inset 0 0 10px #00FF7F;
+        }
+        
+        /* Animação de "flicker" para o efeito neon */
+        @keyframes flicker {
+          0%, 18%, 22%, 25%, 53%, 57%, 100% {
+              text-shadow:
+              0 0 4px #00FF7F,
+              0 0 11px #00FF7F,
+              0 0 19px #00FF7F;
+          }
+          20%, 24%, 55% {        
+              text-shadow: none;
+          }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="error-code">404</h1>
+        <h2>Circuito Não Encontrado</h2>
+        <p>Parece que você tentou acessar um pino que não está conectado. O recurso que você procura pode ter sido movido, arquivado ou simplesmente nunca existiu neste barramento.</p>
+        <a href="/" class="btn-neon">Retornar ao Ponto de Partida</a>
+    </div>
+</body>
+</html>
