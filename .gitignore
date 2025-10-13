@@ -1,0 +1,16 @@
+# Ignorar arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar logs e arquivos temporários
+*.log
+*.tmp
+*.temp
+
+# Ignorar diretórios de dependências (caso você adicione Node.js no futuro)
+node_modules/
+package-lock.json
+
+# Ignorar arquivos de configuração de editores de código
+.vscode/
+.idea/
