@@ -1,6 +1,6 @@
 :root {
   /* Cores principais */
-  --verde-neon: #00ff00;
+  --verde-neon: #00ff41;
   --preto: #000000;
   --branco: #ffffff;
 
@@ -9,7 +9,7 @@
   --cinza-escuro: #1a1a1a;
   --cinza-medio: #333333;
   --laranja: #ff8c00;
-  --ciano: #00ffff;
+  --ciano: #00e5ff; /* Usado para o botão de áudio */
 
   /* Gradientes */
   --gradiente-neon: linear-gradient(45deg, #00ff00, #00ffff);
@@ -45,6 +45,20 @@ header {
   padding: 1rem 0;
 }
 
+/* --- NOVO: Player de Áudio Invisível --- */
+audio#musicaFundo {
+    /* Torna o player COMPLETAMENTE invisível, sem ocupar espaço */
+    position: absolute;
+    top: -9999px; 
+    left: -9999px; 
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    pointer-events: none; /* Garante que não é clicável */
+}
+/* --- FIM NOVO --- */
+
 nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -60,6 +74,38 @@ nav {
   font-weight: 700;
   color: var(--verde-neon);
   text-decoration: none;
+}
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--verde-neon);
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        padding: 2rem;
+        transition: right 0.3s;
+    }
+    
+    .nav-links.active { right: 0; }
 }
 
 .nav-links {
@@ -207,6 +253,28 @@ main {
   color: var(--preto);
   box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
 }
+
+/* --- NOVO: Estilo para o Botão de Áudio --- */
+.btn-audio {
+  border-color: var(--ciano); 
+  color: var(--ciano);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.5); 
+}
+
+.btn-audio:hover {
+  background: var(--ciano);
+  color: var(--preto);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.8);
+}
+
+/* Garante que o estado desligado (secundário) use a cor LARANJA para contraste */
+.btn-audio.btn-secondary {
+    border-color: var(--laranja);
+    color: var(--laranja);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+/* --- FIM NOVO --- */
+
 
 /* Sections */
 section {
@@ -416,21 +484,6 @@ section h2 {
   text-shadow: 0 0 8px #ff6f00;
 }
 
-/* .redes-sociais a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--verde-neon);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .redes-sociais a:hover {
-            color: var(--laranja);
-            transform: translateY(-2px);
-        } */
-
 .stats-pessoais {
   display: flex;
   justify-content: center;
@@ -470,9 +523,8 @@ footer p {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
+  /* Removi a regra display: none para permitir que o JS controle */
+  /* .nav-links { display: none; } */ 
 
   .hero-pessoal h1 {
     font-size: 2.5rem;

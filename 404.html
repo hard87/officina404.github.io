@@ -82,6 +82,37 @@
               text-shadow: none;
           }
         }
+        
+        /* --- ESTILO NOVO: Player de Áudio Invisível --- */
+        audio#musicaFundo404 {
+            position: absolute;
+            top: -9999px; 
+            left: -9999px; 
+            visibility: hidden;
+            height: 0;
+            width: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* --- ESTILO NOVO: Responsividade Mobile --- */
+        @media (max-width: 600px) {
+            .error-code {
+                font-size: 8rem; 
+            }
+        
+            h2 {
+                font-size: 1.5rem;
+            }
+        
+            p {
+                font-size: 1rem;
+            }
+        
+            .btn-neon {
+                padding: 10px 20px;
+            }
+        }
 
     </style>
 </head>
@@ -92,5 +123,10 @@
         <p>Parece que você tentou acessar um pino que não está conectado. O recurso que você procura pode ter sido movido, arquivado ou simplesmente nunca existiu neste barramento.</p>
         <a href="/" class="btn-neon">Retornar ao Ponto de Partida</a>
     </div>
-</body>
+
+    <audio id="musicaFundo404" autoplay loop muted>
+        <source src="audio/minha_musica.mp3" type="audio/mpeg">
+    </audio>
+
+    </body>
 </html>

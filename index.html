@@ -7,18 +7,15 @@
     <meta name="description" content="Portfólio de projetos maker, tutoriais de eletrônica e IoT. Criador do Kit Maker Electronic e especialista em ESP32/Arduino.">
     <meta name="keywords" content="maker, eletrônica, IoT, ESP32, Arduino, projetos DIY, tutoriais">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="Officina 404 - Maker e Desenvolvedor">
     <meta property="og:description" content="Projetos inovadores de eletrônica e IoT">
     <meta property="og:image" content="images/og-image.png">
     <meta property="og:url" content="https://officina404.com.br">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
@@ -33,11 +30,15 @@
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero-pessoal">
             <div class="hero-content">
                 <div class="avatar-tech">
@@ -53,7 +54,7 @@
                     C%23+Developer+%7C+IoT+Enthusiast;Monitoramento+De+Rede+%7C+Security+Tools;
                     Officina+404+-+Maker+Space"
                     alt="Typing SVG" />
-                    </p>
+                </p>
                 
                 <div class="skills-tags">
                     <span class="tech-tag">MCU's</span>
@@ -68,17 +69,25 @@
                     <a href="#projetos" class="btn-neon">Ver Projetos</a>
                     <a href="/cv.pdf" class="btn-neon btn-secondary">Baixar CV</a>
                 </div>
-            </div>
+
+                <div class="cta-buttons" style="margin-top: 1rem;">
+                    <a href="#" id="toggleMusica" class="btn-neon font-mono btn-audio btn-secondary">
+                        [ Áudio: DESLIGADO ]
+                    </a>
+                </div>
+                </div>
         </section>
 
-        <!-- Projeto em Destaque -->
         <section class="projeto-destaque" id="projetos">
             <div class="container">
                 <h2>Projeto em Destaque</h2>
                 
                 <div class="kit-showcase">
                     <div class="kit-visual">
-                        <img src="images/logo-v2.png" alt="Kit Maker Electronic">
+                        <img src="images/logo-v2.png"
+                        alt="Kit Maker Electronic - Plataforma educativa ESP32"
+                        loading="lazy"
+                        width="600" height="400">
                     </div>
                     
                     <div class="kit-info">
@@ -102,7 +111,6 @@
             </div>
         </section>
 
-        <!-- Outros Projetos -->
         <section class="outros-projetos">
             <div class="container">
                 <h2>Outros Projetos</h2>
@@ -136,10 +144,9 @@
             </div>
         </section>
 
-        <!-- Blog Preview -->
         <section class="blog-preview" id="blog">
             <div class="container">
-                <h2>📚 Últimos Artigos</h2>
+                <h2>Últimos Artigos</h2>
                 
                 <div class="artigos-grid">
                     <article class="artigo-card">
@@ -167,10 +174,9 @@
             </div>
         </section>
 
-        <!-- Contato -->
         <section class="contato-redes" id="contato">
             <div class="container">
-                <h2>🤝 Vamos Conversar?</h2>
+                <h2>Vamos Conversar?</h2>
                 
                 <div class="contato-info">
                     <p>Interessado em colaborar, aprender ou apenas trocar ideias sobre tecnologia?</p>
@@ -193,21 +199,6 @@
                             Email
                         </a>
                     </div>
-                    
-                    <!-- <div class="stats-pessoais">
-                        <div class="stat">
-                            <span class="numero">15+</span>
-                            <span class="label">Projetos</span>
-                        </div>
-                        <div class="stat">
-                            <span class="numero">5k+</span>
-                            <span class="label">Seguidores</span>
-                        </div>
-                        <div class="stat">
-                            <span class="numero">50+</span>
-                            <span class="label">Artigos</span>
-                        </div> -->
-                    </div>
                 </div>
             </div>
         </section>
@@ -218,8 +209,12 @@
             <p>&copy; 2025 Officina 404. Todos os direitos reservados.</p>
         </div>
     </footer>
+    
+    <audio id="musicaFundo" loop>
+        <source src="audio/minha_musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
 
     <script src="js/main.js"></script>
 </body>
 </html>
-
