@@ -3,218 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Officina404</title>
-    <meta name="description" content="Portfólio de projetos maker, tutoriais de eletrônica e IoT. Criador do Kit Maker Electronic e especialista em ESP32/Arduino.">
-    <meta name="keywords" content="maker, eletrônica, IoT, ESP32, Arduino, projetos DIY, tutoriais">
-    
-    <meta property="og:title" content="Officina 404 - Maker e Desenvolvedor">
-    <meta property="og:description" content="Projetos inovadores de eletrônica e IoT">
-    <meta property="og:image" content="images/og-image.png">
-    <meta property="og:url" content="https://officina404.com.br">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; script-src 'self' 'unsafe-inline'; upgrade-insecure-requests" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Laboratorio tecnico e portfolio profissional de IoT, software, infraestrutura, observabilidade e seguranca aplicada." />
+    <meta name="keywords" content="Officina 404, IoT, software, infraestrutura, observabilidade, seguranca aplicada, laboratorio tecnico, portfolio de engenharia" />
+    <meta name="author" content="Junior Godoi - Officina 404" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2ED38C" />
+    <link rel="canonical" href="https://officina404.com.br" />
+    <link rel="alternate" href="https://officina404.com.br" hreflang="pt-BR" />
+    <link rel="alternate" href="https://officina404.com.br" hreflang="x-default" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://officina404.com.br" />
+    <meta property="og:site_name" content="Officina 404" />
+    <meta property="og:title" content="Officina 404 | Laboratorio tecnico de IoT, software e seguranca" />
+    <meta property="og:description" content="Do circuito ao codigo: projetos tecnicos com rastreabilidade, seguranca e proposito." />
+    <meta property="og:image" content="https://officina404.com.br/assets/images/og-image.png" />
+    <meta property="og:image:alt" content="Identidade visual da Officina 404 com foco em engenharia tecnica" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://officina404.com.br" />
+    <meta name="twitter:title" content="Officina 404 | Laboratorio tecnico para software, IoT e infraestrutura" />
+    <meta name="twitter:description" content="Projetos reais em hardware, software e operacoes, documentados para evoluir." />
+    <meta name="twitter:image" content="https://officina404.com.br/assets/images/og-image.png" />
+    <meta name="twitter:image:alt" content="Identidade visual da Officina 404 com foco em engenharia tecnica" />
+
+    <title>Officina 404 | Laboratorio tecnico para IoT, software e seguranca aplicada</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/og-image.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4Y3n9SW2PD8y6wMjnN3W1d1DP7q7qldaR+dx1z0N5N9NeBi6VldkzM4qEZOO4VfVj5Hc+1f2Fp3Fl8zYBZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Officina 404",
+        "url": "https://officina404.com.br",
+        "logo": "https://officina404.com.br/assets/images/og-image.png",
+        "image": "https://officina404.com.br/assets/images/profile.webp",
+        "description": "Laboratorio tecnico para IoT, desenvolvimento de software, infraestrutura, observabilidade e seguranca aplicada.",
+        "founder": {
+            "@type": "Person",
+            "name": "Junior Godoi"
+        },
+        "areaServed": "BR",
+        "knowsAbout": ["Hardware", "IoT", "Observabilidade", "Infraestrutura", "Seguranca", "Redes", "Linux", "C#", ".NET", "Python"],
+        "sameAs": [
+            "https://github.com/hard87",
+            "https://instagram.com/officina404",
+            "https://youtube.com/@officina404",
+            "https://linkedin.com/in/juniorgodoi87"
+        ]
+    }
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">Officina 404</a>
-            <ul class="nav-links">
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteudo principal</a>
+    <div class="page">
+        <header id="header">
+            <nav class="nav container" aria-label="Navegação principal">
+                <a class="logo" href="#conteudo-principal">Officina 404</a>
+                <button class="mobile-menu-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="#conteudo-principal">Início</a></li>
+                    <li><a href="#areas">Áreas</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <section class="hero-pessoal">
-            <div class="hero-content">
-                <div class="avatar-tech">
-                    <i class="fas fa-microchip"></i>
-                </div>
-                
-                <h1>Officina 404</h1>
-                <h2>Maker • Desenvolvedor • Criador</h2>
-                <p style="text-align:center;">
-                    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&
-                    size=22&duration=3000&pause=1000&color=00D9FF&center=true&vCenter=
-                    true&width=600&lines=Do+circuito+ao+c%C3%B3digo%3A+ideias+que+funcionam;
-                    C%23+Developer+%7C+IoT+Enthusiast;Monitoramento+De+Rede+%7C+Security+Tools;
-                    Officina+404+-+Maker+Space"
-                    alt="Typing SVG" />
-                </p>
-                
-                <div class="skills-tags">
-                    <span class="tech-tag">MCU's</span>
-                    <span class="tech-tag">IoT</span>
-                    <span class="tech-tag">.NET Core</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">C/C++</span>
-                    <span class="tech-tag">PCB Design</span>
-                </div>
-                
-                <div class="cta-buttons">
-                    <a href="#projetos" class="btn-neon">Ver Projetos</a>
-                    <a href="/cv.pdf" class="btn-neon btn-secondary">Baixar CV</a>
-                </div>
-
-                <div class="cta-buttons" style="margin-top: 1rem;">
-                    <a href="#" id="toggleMusica" class="btn-neon font-mono btn-audio btn-secondary">
-                        [ Áudio: DESLIGADO ]
-                    </a>
-                </div>
-                </div>
-        </section>
-
-        <section class="projeto-destaque" id="projetos">
-            <div class="container">
-                <h2>Projeto em Destaque</h2>
-                
-                <div class="kit-showcase">
-                    <div class="kit-visual">
-                        <img src="images/logo-v2.png"
-                        alt="Kit Maker Electronic - Plataforma educativa ESP32"
-                        loading="lazy"
-                        width="600" height="400">
+        <main id="conteudo-principal">
+            <section class="sobre" id="sobre">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Identidade</p>
+                        <h1>Oficina 404 é precisão técnica e postura profissional.</h1>
+                        <p>
+                            A marca representa a ponte entre observabilidade, redes e desenvolvimento embarcado. A abordagem combina
+                            disciplina de infraestrutura, clareza documental e estética industrial minimalista para clientes que precisam de
+                            respostas técnicas com maturidade e confiabilidade.
+                        </p>
                     </div>
-                    
-                    <div class="kit-info">
-                        <h3>Kit Maker Electronic</h3>
-                        <p>Kit educativo portátil com ESP32, sensores e projetos IoT. Desenvolvido para democratizar o aprendizado de eletrônica.</p>
-                        
-                        <div class="tech-stack">
-                            <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">Sensores IoT</span>
-                            <span class="tech-tag">PCB Custom</span>
-                            <span class="tech-tag">Documentação</span>
+                    <div class="sobre-grid">
+                        <div>
+                            <h2>Quem está por trás?</h2>
+                            <p>
+                                Sou Junior Godoi, tecnólogo em Big Data e inteligência analítica com especialização em segurança da informação.
+                                Atuo no suporte técnico avançado, administração de servidores Linux e automação de redes (HPE, Cisco, firewalls
+                                segmentados) enquanto lidero projetos em C#, .NET, Python e eletrônica com foco em observabilidade.
+                            </p>
                         </div>
-                        
-                        <div class="project-links">
-                            <a href="/projetos/kit-maker-electronic">Ver Detalhes</a>
-                            <a href="https://github.com/hard87">GitHub</a>
-                            <a href="/blog/criando-kit-maker">Como Criei</a>
+                        <div>
+                            <h2>Como trabalho</h2>
+                            <ul class="sobre-list">
+                                <li>Documentação viva e checklist de entrega</li>
+                                <li>Prototipagem rápida com testes reais e dados monitorados</li>
+                                <li>Operações de rede, segurança e IoT integradas</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="outros-projetos">
-            <div class="container">
-                <h2>Outros Projetos</h2>
-                
-                <div class="projetos-grid">
-                    <div class="projeto-card">
-                        <img src="images/smart-home.jpg" alt="Automação Residencial">
-                        <h4>Smart Home DIY</h4>
-                        <p>Sistema completo de automação residencial com ESP32 e sensores diversos</p>
-                        <div class="tech">ESP32 • MQTT • Home Assistant</div>
+            <section class="areas" id="areas">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Áreas de atuação</p>
+                        <h2>Diagnóstico, estratégia e execução técnica.</h2>
+                        <p>
+                            Cada área é entregue com documentação clara, arquitetura observável e foco em escalabilidade.
+                        </p>
                     </div>
-                    
-                    <div class="projeto-card">
-                        <img src="images/weather-station.webp" alt="Estação Meteorológica">
-                        <h4>Estação Meteorológica IoT</h4>
-                        <p>Monitoramento climático em tempo real com dashboard web interativo</p>
-                        <div class="tech">Arduino • LoRa • Dashboard</div>
-                    </div>
-                    
-                    <div class="projeto-card">
-                        <img src="images/autonomous-robot-ai.jpg" alt="Robô Seguidor">
-                        <h4>Robô Autonômo</h4>
-                        <p>Robô autônomo com inteligência artificial embarcada</p>
-                        <div class="tech">ESP32-CAM • TensorFlow Lite</div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center;">
-                    <a href="/projetos" class="btn-neon">Ver Todos os Projetos</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="blog-preview" id="blog">
-            <div class="container">
-                <h2>Últimos Artigos</h2>
-                
-                <div class="artigos-grid">
-                    <article class="artigo-card">
-                        <h4>ESP32 vs Arduino:</h4>
-                        <p>Uma Análise Comparativa de Arquiteturas e Aplicações</p>
-                        <div class="meta">5 min • Introdutório</div>
-                    </article>
-                    
-                    <article class="artigo-card">
-                        <h4>Como criar PCBs em Casa</h4>
-                        <p>Processo completo do design à fabricação de placas de circuito impresso</p>
-                        <div class="meta">12 min • Básico</div>
-                    </article>
-                    
-                    <article class="artigo-card">
-                        <h4>O que é LoRa e LoRaWAN?</h4>
-                        <p>Comunicação de longo alcance e IoT</p>
-                        <div class="meta">8 min • Intermediário</div>
-                    </article>
-                </div>
-                
-                <div style="text-align: center;">
-                    <a href="/blog" class="btn-neon">Ver Todos os Artigos</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="contato-redes" id="contato">
-            <div class="container">
-                <h2>Vamos Conversar?</h2>
-                
-                <div class="contato-info">
-                    <p>Interessado em colaborar, aprender ou apenas trocar ideias sobre tecnologia?</p>
-                    
-                    <div class="redes-sociais">
-                        <a href="https://github.com/hard87">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
-                        <a href="https://instagram.com/officina404">
-                            <i class="fab fa-instagram"></i>
-                            Instagram
-                        </a>
-                        <a href="https://youtube.com/@officina404">
-                            <i class="fab fa-youtube"></i>
-                            YouTube
-                        </a>
-                        <a href="mailto:contato@officina404.com.br">
-                            <i class="fas fa-envelope"></i>
-                            Email
-                        </a>
+                    <div class="areas-grid">
+                        <article class="area-card" data-animate>
+                            <h3>Infraestrutura &amp; observabilidade</h3>
+                            <p>Shift-left em monitoramento, playbooks de rede e configuração de stacks Linux/Docker/Kubernetes.</p>
+                            <div class="tag-list">
+                                <span class="tag">Linux</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Prometheus</span>
+                            </div>
+                        </article>
+                        <article class="area-card" data-animate>
+                            <h3>Software embarcado</h3>
+                            <p>Firmware em C, MicroPython e integração com dashboards seguros.</p>
+                            <div class="tag-list">
+                                <span class="tag">ESP32</span>
+                                <span class="tag">C#/.NET</span>
+                                <span class="tag">MQTT</span>
+                            </div>
+                        </article>
+                        <article class="area-card" data-animate>
+                            <h3>Redes &amp; conectividade</h3>
+                            <p>Projetos com segmentação, políticas de firewall e observabilidade de tráfego.</p>
+                            <div class="tag-list">
+                                <span class="tag">Cisco</span>
+                                <span class="tag">HPE</span>
+                                <span class="tag">Wi-Fi industrial</span>
+                            </div>
+                        </article>
+                        <article class="area-card" data-animate>
+                            <h3>Segurança aplicada</h3>
+                            <p>Pentests internos, resposta a incidentes e hardening em infra e sistemas conectados.</p>
+                            <div class="tag-list">
+                                <span class="tag">Pentesting</span>
+                                <span class="tag">SIEM</span>
+                                <span class="tag">Zero Trust</span>
+                            </div>
+                        </article>
                     </div>
                 </div>
+            </section>
+
+            <section class="projetos" id="projetos">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Projetos estratégicos</p>
+                        <h2>Demonstrações reais de sistemas integrados.</h2>
+                        <p>Seleção de iniciativas que combinam hardware, software e operações em um único fluxo técnico.</p>
+                    </div>
+                    <div class="projetos-grid">
+                        <article class="project-card" data-animate>
+                            <div class="project-card__body">
+                                <h3>Plataforma de monitoramento edge</h3>
+                                <p>Gateway embarcado com ESP32, telemetria MQTT e painel web para rastrear sensores críticos e alertas.</p>
+                                <ul>
+                                    <li>Documentação de APIs e fluxos de dados</li>
+                                    <li>Camada de segurança com TLS mútua</li>
+                                </ul>
+                            </div>
+                            <div class="project-card__footer">
+                                <span class="project-tag">ESP32</span>
+                                <span class="project-tag">Observabilidade</span>
+                            </div>
+                        </article>
+                        <article class="project-card" data-animate>
+                            <div class="project-card__body">
+                                <h3>Automação de infraestrutura HPE</h3>
+                                <p>Playbooks Ansible para provisionamento, monitoramento SNMP e dashboards Grafana para datacenter.</p>
+                                <ul>
+                                    <li>Scripts versionados e testados</li>
+                                    <li>Alertas e runbooks prévios à mudança</li>
+                                </ul>
+                            </div>
+                            <div class="project-card__footer">
+                                <span class="project-tag">HPE</span>
+                                <span class="project-tag">Ansible</span>
+                            </div>
+                        </article>
+                        <article class="project-card" data-animate>
+                            <div class="project-card__body">
+                                <h3>Laboratório de segurança conectada</h3>
+                                <p>Ambiente dedicado a pentests, análise de rede e resposta coordenada com logs e playbooks.</p>
+                                <ul>
+                                    <li>SIEM integrado e visualização clara</li>
+                                    <li>Checklist de provas e evidências</li>
+                                </ul>
+                            </div>
+                            <div class="project-card__footer">
+                                <span class="project-tag">Segurança</span>
+                                <span class="project-tag">Observabilidade</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="blog" id="blog">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Blog técnico</p>
+                        <h2>Conteúdo para profissionais da linha branca e industrial tech.</h2>
+                        <p>Guias práticos e análises objetivas sobre infraestrutura, IoT e segurança aplicada.</p>
+                    </div>
+                    <div class="blog-grid">
+                        <article class="blog-card" data-animate>
+                            <figure class="blog-card__media">
+                                <picture>
+                                    <source srcset="assets/images/blog-esp32-arduino.webp" type="image/webp" />
+                                    <img src="assets/images/blog-esp32-arduino.jpg" alt="Comparativo tecnico entre placas ESP32 e Arduino em bancada de laboratorio" loading="lazy" decoding="async" width="1536" height="1024" />
+                                </picture>
+                            </figure>
+                            <div class="blog-card__body">
+                                <p class="blog-card__date">18 Out. 2025</p>
+                                <h3>ESP32 vs Arduino em soluções industriais</h3>
+                                <p>Análise comparativa com foco em estabilidade, manutenção e integração com sistemas em nuvem.</p>
+                                <a class="blog-card__link" href="blog/esp32-vs-arduino.html">Ler artigo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                        <article class="blog-card" data-animate>
+                            <figure class="blog-card__media">
+                                <picture>
+                                    <source srcset="assets/images/estacao-meteo.webp" type="image/webp" />
+                                    <img src="assets/images/estacao-meteo.jpg" alt="Estacao meteo IoT com sensores e telemetria para monitoramento remoto" loading="lazy" decoding="async" width="1500" height="1210" />
+                                </picture>
+                            </figure>
+                            <div class="blog-card__body">
+                                <p class="blog-card__date">22 Jan. 2025</p>
+                                <h3>Métricas essenciais de monitoramento MQTT</h3>
+                                <p>Checklist rápido para garantir SLA em comunicações IoT sensíveis.</p>
+                                <a class="blog-card__link" href="em-construcao.html">Ler artigo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                        <article class="blog-card" data-animate>
+                            <figure class="blog-card__media">
+                                <picture>
+                                    <source srcset="assets/images/kit-maker.webp" type="image/webp" />
+                                    <img src="assets/images/kit-maker.jpg" alt="Kit maker com placas, sensores e prototipos para testes tecnicos" loading="lazy" decoding="async" width="731" height="430" />
+                                </picture>
+                            </figure>
+                            <div class="blog-card__body">
+                                <p class="blog-card__date">29 Jan. 2025</p>
+                                <h3>PCBs com foco em manutenção e testes</h3>
+                                <p>Processos e ferramentas para projetos eletrônicos com rastreabilidade e documentação clara.</p>
+                                <a class="blog-card__link" href="em-construcao.html">Ler artigo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contato" id="contato">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Contato</p>
+                        <h2>Pronto para estruturar sua próxima iniciativa?</h2>
+                        <p>Preencha o formulário e respondemos com um plano técnico objetivo.</p>
+                    </div>
+                    <div class="contato-grid">
+                        <div class="contato-info">
+                            <h3>Conecte-se</h3>
+                            <p>Conexão direta para hardware, software, infraestrutura e segurança em um único canal.</p>
+                            <ul class="social-links" aria-label="Canais de contato da Officina 404">
+                                <li>
+                                    <a class="social-link" href="https://github.com/hard87" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Officina 404 (abre em nova aba)">
+                                        <span class="social-link__icon" aria-hidden="true"><i class="fab fa-github"></i></span>
+                                        <span class="social-link__text">
+                                            <strong>GitHub</strong>
+                                            <small>Repositórios e projetos técnicos</small>
+                                        </span>
+                                        <span class="social-link__action" aria-hidden="true"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="social-link" href="https://linkedin.com/in/juniorgodoi87" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Junior Godoi (abre em nova aba)">
+                                        <span class="social-link__icon" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>
+                                        <span class="social-link__text">
+                                            <strong>LinkedIn</strong>
+                                            <small>Carreira, operações e networking técnico</small>
+                                        </span>
+                                        <span class="social-link__action" aria-hidden="true"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="social-link" href="mailto:contato@officina404.com.br" aria-label="Enviar email para contato da Officina 404">
+                                        <span class="social-link__icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+                                        <span class="social-link__text">
+                                            <strong>Email</strong>
+                                            <small>Contato direto para demandas e parcerias</small>
+                                        </span>
+                                        <span class="social-link__action" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <form class="contato-form" id="contact-form" action="#" method="POST" novalidate data-form-endpoint="">
+                            <p class="form-note" id="contact-form-note">Campos marcados com * sao obrigatorios.</p>
+                            <p class="form-feedback" data-form-feedback aria-live="polite"></p>
+                            <div class="form-group">
+                                <label for="nome">Nome completo *</label>
+                                <input type="text" id="nome" name="nome" required minlength="2" maxlength="100" placeholder="Ex.: Ana da Silva" autocomplete="name" inputmode="text" spellcheck="false" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email profissional *</label>
+                                <input type="email" id="email" name="email" required maxlength="254" placeholder="nome@empresa.com" autocomplete="email" inputmode="email" spellcheck="false" />
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagem">Breve descricao do desafio *</label>
+                                <textarea id="mensagem" name="mensagem" required minlength="10" maxlength="1000" rows="4" placeholder="Conte o que precisa automatizar, monitorar ou proteger"></textarea>
+                            </div>
+                            <div class="form-group form-group--hidden" aria-hidden="true">
+                                <label for="empresa">Empresa (nao preencher)</label>
+                                <input type="text" id="empresa" name="empresa" autocomplete="off" tabindex="-1" />
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-submit-text="Enviar briefing tecnico">Enviar briefing tecnico</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+                        <footer class="site-footer">
+            <div class="container footer-shell">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <a class="footer-logo" href="#conteudo-principal">Officina 404</a>
+                        <p class="footer-signature">Hardware, software, infraestrutura e seguranca com postura tecnica e entrega confiavel.</p>
+                    </div>
+                    <nav class="footer-links" aria-label="Links uteis do rodape">
+                        <a href="#areas">Areas</a>
+                        <a href="#projetos">Projetos</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#contato">Contato</a>
+                    </nav>
+                    <ul class="footer-social" aria-label="Canais sociais da Officina 404">
+                        <li>
+                            <a href="https://github.com/hard87" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Officina 404 (abre em nova aba)">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/juniorgodoi87" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Junior Godoi (abre em nova aba)">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:contato@officina404.com.br" aria-label="Enviar email para Officina 404">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-meta">
+                    <p>&copy; 2026 Officina 404 - Junior Godoi. Todos os direitos reservados.</p>
+                    <p>Do circuito ao codigo, com disciplina e clareza tecnica.</p>
+                </div>
             </div>
-        </section>
-    </main>
+        </footer>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Officina 404. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-    
-    <audio id="musicaFundo" loop>
-        <source src="audio/minha_musica.mp3" type="audio/mpeg">
-        Seu navegador não suporta a tag de áudio.
-    </audio>
-
-    <script src="js/main.js"></script>
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>

@@ -1,0 +1,107 @@
+MÚSICA DE FUNDO PARA O SITE OFFICINA 404
+=========================================
+
+Esta pasta deve conter a música de fundo que será tocada no player do site.
+
+ARQUIVO NECESSÁRIO:
+-------------------
+background-music.mp3
+
+ESPECIFICAÇÕES RECOMENDADAS:
+----------------------------
+- Formato: MP3 (melhor compatibilidade)
+- Bitrate: 128 kbps (equilíbrio entre qualidade e tamanho)
+- Tamanho: Máximo 5MB (para carregamento rápido)
+- Duração: 2-5 minutos (será reproduzido em loop)
+- Volume: Mixado para fundo (não deve sobrepor a experiência)
+- Estilo: Instrumental, eletrônico, lo-fi, synthwave, ou cyberpunk
+
+SUGESTÕES DE ESTILO MUSICAL:
+-----------------------------
+Para combinar com a estética cyberpunk/tech do site:
+- Synthwave (estilo anos 80 futurista)
+- Lo-fi hip hop (relaxante, foco)
+- Ambient eletrônico
+- Chiptune (música de videogame 8-bit)
+- Cyberpunk/Darksynth
+
+ONDE ENCONTRAR MÚSICA LIVRE:
+-----------------------------
+1. YouTube Audio Library
+   https://www.youtube.com/audiolibrary
+   - Gratuito, sem copyright
+   - Filtrar por: Eletrônico, Ambiente
+
+2. Free Music Archive
+   https://freemusicarchive.org/
+   - Licenças Creative Commons
+   - Buscar: "synthwave", "lo-fi", "electronic"
+
+3. Incompetech (Kevin MacLeod)
+   https://incompetech.com/
+   - Música gratuita com atribuição
+   - Seção "Electronic" ou "Ambient"
+
+4. Bensound
+   https://www.bensound.com/
+   - Música gratuita para uso pessoal/comercial
+   - Categoria "Electronica"
+
+5. Pixabay Music
+   https://pixabay.com/music/
+   - Gratuito, sem atribuição necessária
+
+RECOMENDAÇÕES ESPECÍFICAS:
+--------------------------
+Músicas que combinam com o tema "Officina 404":
+
+1. "Cipher" - Kevin MacLeod (Incompetech)
+   Estilo: Eletrônico, misterioso
+
+2. "Electrodoodle" - Kevin MacLeod
+   Estilo: Eletrônico, energético
+
+3. "Wallpaper" - Kevin MacLeod
+   Estilo: Ambiente, moderno
+
+4. Qualquer faixa de "Lofi Girl" no YouTube
+   Estilo: Lo-fi hip hop (relaxante)
+
+5. Músicas da biblioteca do YouTube com tag "Synthwave"
+
+COMO ADICIONAR A MÚSICA:
+------------------------
+1. Baixe a música escolhida
+2. Converta para MP3 (se necessário)
+3. Renomeie para "background-music.mp3"
+4. Coloque nesta pasta (assets/audio/)
+5. Teste no site
+
+FERRAMENTAS DE EDIÇÃO/CONVERSÃO:
+---------------------------------
+- Audacity (gratuito): https://audacityteam.org/
+  - Editar, cortar, ajustar volume
+  - Exportar para MP3
+
+- Online Audio Converter: https://online-audio-converter.com/
+  - Converter formatos
+  - Ajustar bitrate
+
+DICAS IMPORTANTES:
+------------------
+- Certifique-se de que a música tem licença livre
+- Adicione atribuição no rodapé do site se necessário
+- Teste o volume (não deve ser muito alto)
+- Considere que nem todos os usuários gostam de música automática
+  (por isso o player tem botão de pause)
+
+ALTERNATIVA:
+------------
+Se não quiser adicionar música, você pode:
+1. Remover o player do HTML (seção .music-player)
+2. Remover o módulo music-player.js
+3. O site funcionará normalmente sem música
+
+O player de música é um recurso OPCIONAL e pode ser removido
+sem afetar o funcionamento do restante do site.
+

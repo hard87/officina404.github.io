@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Validação de Formulários - Officina 404</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            background: var(--cinza-escuro);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+        
+        .test-section h2 {
+            color: var(--verde-neon);
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--branco);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-mono);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--cinza-medio);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 6px;
+            color: var(--branco);
+            font-family: var(--font-code);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .test-cases {
+            background: rgba(0, 255, 65, 0.05);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--verde-neon);
+        }
+        
+        .test-cases h3 {
+            color: var(--ciano-neon);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .test-cases ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .test-cases li {
+            color: var(--cinza-claro);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            font-family: var(--font-mono);
+        }
+        
+        .test-cases li::before {
+            content: "→ ";
+            color: var(--verde-neon);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: var(--verde-neon); text-align: center; margin-bottom: 2rem;">
+        Teste de Validação de Formulários
+    </h1>
+
+    <!-- Formulário de Contato -->
+    <div class="test-section">
+        <h2>Formulário de Contato</h2>
+        
+        <form class="contato-form">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-neon">Enviar Mensagem</button>
+        </form>
+        
+        <div class="test-cases">
+            <h3>Casos de Teste - Nome:</h3>
+            <ul>
+                <li>Válido: "João Silva"</li>
+                <li>Inválido: "J" (muito curto)</li>
+                <li>Inválido: "João123" (contém números)</li>
+                <li>Inválido: "Teste porra" (palavra ofensiva)</li>
+            </ul>
+            
+            <h3>Casos de Teste - Email:</h3>
+            <ul>
+                <li>Válido: "usuario@exemplo.com"</li>
+                <li>Inválido: "usuario" (sem @)</li>
+                <li>Inválido: "usuario@" (sem domínio)</li>
+                <li>Inválido: "@exemplo.com" (sem parte local)</li>
+                <li>Inválido: "usuario@tempmail.com" (email descartável)</li>
+            </ul>
+            
+            <h3>Casos de Teste - Mensagem:</h3>
+            <ul>
+                <li>Válido: "Olá, gostaria de mais informações sobre seus serviços."</li>
+                <li>Inválido: "Oi" (muito curta, mínimo 10 caracteres)</li>
+                <li>Inválido: "Mensagem com porra" (palavra ofensiva)</li>
+                <li>Inválido: "Mensagem com p0rra" (variação de palavra ofensiva)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Formulário de Newsletter -->
+    <div class="test-section">
+        <h2>Formulário de Newsletter</h2>
+        
+        <form class="newsletter-form">
+            <div class="form-group">
+                <label for="newsletter-email">Email para Newsletter:</label>
+                <input type="email" id="newsletter-email" name="email" placeholder="seu@email.com">
+            </div>
+            
+            <button type="submit" class="btn-neon">Inscrever-se</button>
+        </form>
+        
+        <div class="test-cases">
+            <h3>Casos de Teste - Email:</h3>
+            <ul>
+                <li>Válido: "usuario@exemplo.com.br"</li>
+                <li>Válido: "usuario.nome@exemplo.com"</li>
+                <li>Inválido: "usuario@" (incompleto)</li>
+                <li>Inválido: "usuario@guerrillamail.com" (email descartável)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Informações de Debug -->
+    <div class="test-section">
+        <h2>Console de Debug</h2>
+        <p style="color: var(--cinza-claro); font-family: var(--font-mono); font-size: 0.9rem;">
+            Abra o console do navegador (F12) para ver mensagens de debug durante os testes.
+        </p>
+        <p style="color: var(--ciano-neon); font-family: var(--font-mono); font-size: 0.9rem; margin-top: 1rem;">
+            ✓ Validação de email implementada<br>
+            ✓ Filtro de palavras ofensivas ativo<br>
+            ✓ Feedback visual funcionando<br>
+            ✓ Acessibilidade (ARIA) implementada
+        </p>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
