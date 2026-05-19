@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; script-src 'self' 'unsafe-inline'; upgrade-insecure-requests" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto:; connect-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'sha256-+Al6dsM6hUkER4/AWvzof0HHAUhaJWL1sfEkQwrJTKg='; upgrade-insecure-requests" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="format-detection" content="telephone=no" />
@@ -24,6 +24,8 @@
     <meta property="og:title" content="Officina 404 | Laboratorio tecnico de IoT, software e seguranca" />
     <meta property="og:description" content="Do circuito ao codigo: projetos tecnicos com rastreabilidade, seguranca e proposito." />
     <meta property="og:image" content="https://officina404.com.br/assets/images/og-image.png" />
+    <meta property="og:image:width" content="1257" />
+    <meta property="og:image:height" content="675" />
     <meta property="og:image:alt" content="Identidade visual da Officina 404 com foco em engenharia tecnica" />
     <meta property="og:locale" content="pt_BR" />
 
@@ -44,9 +46,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4Y3n9SW2PD8y6wMjnN3W1d1DP7q7qldaR+dx1z0N5N9NeBi6VldkzM4qEZOO4VfVj5Hc+1f2Fp3Fl8zYBZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
@@ -82,7 +81,7 @@
         <header id="header">
             <nav class="nav container" aria-label="Navegação principal">
                 <a class="logo" href="#conteudo-principal">Officina 404</a>
-                <button class="mobile-menu-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu">
+                <button class="mobile-menu-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -91,6 +90,7 @@
                     <li><a href="#conteudo-principal">Início</a></li>
                     <li><a href="#areas">Áreas</a></li>
                     <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#credibilidade">Credibilidade</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#contato">Contato</a></li>
@@ -99,11 +99,31 @@
         </header>
 
         <main id="conteudo-principal">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="container hero__content">
+                    <p class="eyebrow">Officina 404</p>
+                    <h1 id="hero-title">Laboratório técnico para IoT, software e segurança aplicada.</h1>
+                    <p class="hero__lead">
+                        Do circuito ao código: projetos com rastreabilidade, observabilidade e disciplina de engenharia
+                        para quem precisa transformar protótipos, infraestrutura e dados em sistemas confiáveis.
+                    </p>
+                    <div class="hero-cta" aria-label="Ações principais">
+                        <a class="btn btn-primary" href="#contato">Conversar sobre uma iniciativa</a>
+                        <a class="btn btn-secondary" href="#projetos">Ver projetos técnicos</a>
+                    </div>
+                    <ul class="hero__signals" aria-label="Sinais técnicos da Officina 404">
+                        <li>Infraestrutura observável</li>
+                        <li>IoT e hardware conectado</li>
+                        <li>Segurança aplicada</li>
+                    </ul>
+                </div>
+            </section>
+
             <section class="sobre" id="sobre">
                 <div class="container">
                     <div class="section-heading">
                         <p class="eyebrow">Identidade</p>
-                        <h1>Oficina 404 é precisão técnica e postura profissional.</h1>
+                        <h2>Officina 404 é precisão técnica e postura profissional.</h2>
                         <p>
                             A marca representa a ponte entre observabilidade, redes e desenvolvimento embarcado. A abordagem combina
                             disciplina de infraestrutura, clareza documental e estética industrial minimalista para clientes que precisam de
@@ -112,7 +132,7 @@
                     </div>
                     <div class="sobre-grid">
                         <div>
-                            <h2>Quem está por trás?</h2>
+                            <h3>Quem está por trás?</h3>
                             <p>
                                 Sou Junior Godoi, tecnólogo em Big Data e inteligência analítica com especialização em segurança da informação.
                                 Atuo no suporte técnico avançado, administração de servidores Linux e automação de redes (HPE, Cisco, firewalls
@@ -120,7 +140,7 @@
                             </p>
                         </div>
                         <div>
-                            <h2>Como trabalho</h2>
+                            <h3>Como trabalho</h3>
                             <ul class="sobre-list">
                                 <li>Documentação viva e checklist de entrega</li>
                                 <li>Prototipagem rápida com testes reais e dados monitorados</li>
@@ -235,6 +255,36 @@
                 </div>
             </section>
 
+            <section class="credibilidade" id="credibilidade">
+                <div class="container">
+                    <div class="section-heading">
+                        <p class="eyebrow">Credibilidade</p>
+                        <h2>Espaço preparado para evidências reais.</h2>
+                        <p>
+                            A prova social precisa ser verificável. Esta área organiza o que deve ser publicado quando houver
+                            autorização, métricas confirmadas ou links públicos auditáveis.
+                        </p>
+                    </div>
+                    <div class="evidence-grid">
+                        <article class="evidence-card" data-animate>
+                            <p class="evidence-card__label">Projetos públicos</p>
+                            <h3>Repositórios, documentação e demos</h3>
+                            <p>Adicionar links para projetos públicos, documentação técnica, demonstrações ou estudos de caso aprovados.</p>
+                        </article>
+                        <article class="evidence-card" data-animate>
+                            <p class="evidence-card__label">Resultados verificáveis</p>
+                            <h3>Métricas de operação e entrega</h3>
+                            <p>Reservar para números reais: uptime, redução de tempo de resposta, dispositivos gerenciados ou SLAs atingidos.</p>
+                        </article>
+                        <article class="evidence-card" data-animate>
+                            <p class="evidence-card__label">Reconhecimento</p>
+                            <h3>Certificações, parcerias e participação técnica</h3>
+                            <p>Publicar apenas certificações, colaborações, clientes ou comunidades que possam ser confirmados.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
             <section class="blog" id="blog">
                 <div class="container">
                     <div class="section-heading">
@@ -254,7 +304,7 @@
                                 <p class="blog-card__date">18 Out. 2025</p>
                                 <h3>ESP32 vs Arduino em soluções industriais</h3>
                                 <p>Análise comparativa com foco em estabilidade, manutenção e integração com sistemas em nuvem.</p>
-                                <a class="blog-card__link" href="blog/esp32-vs-arduino.html">Ler artigo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                <a class="blog-card__link" href="blog/esp32-vs-arduino.html">Ler artigo <span class="link-arrow" aria-hidden="true">&rarr;</span></a>
                             </div>
                         </article>
                         <article class="blog-card" data-animate>
@@ -268,7 +318,7 @@
                                 <p class="blog-card__date">22 Jan. 2025</p>
                                 <h3>Métricas essenciais de monitoramento MQTT</h3>
                                 <p>Checklist rápido para garantir SLA em comunicações IoT sensíveis.</p>
-                                <a class="blog-card__link" href="em-construcao.html">Ler artigo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                <a class="blog-card__link" href="em-construcao.html">Ler artigo <span class="link-arrow" aria-hidden="true">&rarr;</span></a>
                             </div>
                         </article>
                         <article class="blog-card" data-animate>
@@ -282,7 +332,7 @@
                                 <p class="blog-card__date">29 Jan. 2025</p>
                                 <h3>PCBs com foco em manutenção e testes</h3>
                                 <p>Processos e ferramentas para projetos eletrônicos com rastreabilidade e documentação clara.</p>
-                                <a class="blog-card__link" href="em-construcao.html">Ler artigo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                <a class="blog-card__link" href="em-construcao.html">Ler artigo <span class="link-arrow" aria-hidden="true">&rarr;</span></a>
                             </div>
                         </article>
                     </div>
@@ -303,38 +353,38 @@
                             <ul class="social-links" aria-label="Canais de contato da Officina 404">
                                 <li>
                                     <a class="social-link" href="https://github.com/hard87" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Officina 404 (abre em nova aba)">
-                                        <span class="social-link__icon" aria-hidden="true"><i class="fab fa-github"></i></span>
+                                        <span class="social-link__icon" aria-hidden="true">GH</span>
                                         <span class="social-link__text">
                                             <strong>GitHub</strong>
                                             <small>Repositórios e projetos técnicos</small>
                                         </span>
-                                        <span class="social-link__action" aria-hidden="true"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                                        <span class="social-link__action" aria-hidden="true">&nearr;</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="social-link" href="https://linkedin.com/in/juniorgodoi87" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Junior Godoi (abre em nova aba)">
-                                        <span class="social-link__icon" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>
+                                        <span class="social-link__icon" aria-hidden="true">in</span>
                                         <span class="social-link__text">
                                             <strong>LinkedIn</strong>
                                             <small>Carreira, operações e networking técnico</small>
                                         </span>
-                                        <span class="social-link__action" aria-hidden="true"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                                        <span class="social-link__action" aria-hidden="true">&nearr;</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="social-link" href="mailto:contato@officina404.com.br" aria-label="Enviar email para contato da Officina 404">
-                                        <span class="social-link__icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+                                        <span class="social-link__icon" aria-hidden="true">@</span>
                                         <span class="social-link__text">
                                             <strong>Email</strong>
                                             <small>Contato direto para demandas e parcerias</small>
                                         </span>
-                                        <span class="social-link__action" aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                                        <span class="social-link__action" aria-hidden="true">&rarr;</span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <form class="contato-form" id="contact-form" action="#" method="POST" novalidate data-form-endpoint="">
-                            <p class="form-note" id="contact-form-note">Campos marcados com * sao obrigatorios.</p>
+                        <form class="contato-form" id="contact-form" action="mailto:contato@officina404.com.br" method="post" enctype="text/plain" novalidate data-form-endpoint="" data-fallback-email="contato@officina404.com.br">
+                            <p class="form-note" id="contact-form-note">Campos marcados com * são obrigatórios.</p>
                             <p class="form-feedback" data-form-feedback aria-live="polite"></p>
                             <div class="form-group">
                                 <label for="nome">Nome completo *</label>
@@ -345,54 +395,55 @@
                                 <input type="email" id="email" name="email" required maxlength="254" placeholder="nome@empresa.com" autocomplete="email" inputmode="email" spellcheck="false" />
                             </div>
                             <div class="form-group">
-                                <label for="mensagem">Breve descricao do desafio *</label>
+                                <label for="mensagem">Breve descrição do desafio *</label>
                                 <textarea id="mensagem" name="mensagem" required minlength="10" maxlength="1000" rows="4" placeholder="Conte o que precisa automatizar, monitorar ou proteger"></textarea>
                             </div>
                             <div class="form-group form-group--hidden" aria-hidden="true">
-                                <label for="empresa">Empresa (nao preencher)</label>
+                                <label for="empresa">Empresa (não preencher)</label>
                                 <input type="text" id="empresa" name="empresa" autocomplete="off" tabindex="-1" />
                             </div>
-                            <button type="submit" class="btn btn-primary" data-submit-text="Enviar briefing tecnico">Enviar briefing tecnico</button>
+                            <button type="submit" class="btn btn-primary" data-submit-text="Preparar briefing técnico">Preparar briefing técnico</button>
                         </form>
                     </div>
                 </div>
             </section>
         </main>
 
-                        <footer class="site-footer">
+        <footer class="site-footer">
             <div class="container footer-shell">
                 <div class="footer-main">
                     <div class="footer-brand">
                         <a class="footer-logo" href="#conteudo-principal">Officina 404</a>
-                        <p class="footer-signature">Hardware, software, infraestrutura e seguranca com postura tecnica e entrega confiavel.</p>
+                        <p class="footer-signature">Hardware, software, infraestrutura e segurança com postura técnica e entrega confiável.</p>
                     </div>
-                    <nav class="footer-links" aria-label="Links uteis do rodape">
-                        <a href="#areas">Areas</a>
+                    <nav class="footer-links" aria-label="Links úteis do rodapé">
+                        <a href="#areas">Áreas</a>
                         <a href="#projetos">Projetos</a>
+                        <a href="#credibilidade">Credibilidade</a>
                         <a href="#blog">Blog</a>
                         <a href="#contato">Contato</a>
                     </nav>
                     <ul class="footer-social" aria-label="Canais sociais da Officina 404">
                         <li>
                             <a href="https://github.com/hard87" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Officina 404 (abre em nova aba)">
-                                <i class="fab fa-github" aria-hidden="true"></i>
+                                <span aria-hidden="true">GH</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://linkedin.com/in/juniorgodoi87" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Junior Godoi (abre em nova aba)">
-                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                <span aria-hidden="true">in</span>
                             </a>
                         </li>
                         <li>
                             <a href="mailto:contato@officina404.com.br" aria-label="Enviar email para Officina 404">
-                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span aria-hidden="true">@</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="footer-meta">
                     <p>&copy; 2026 Officina 404 - Junior Godoi. Todos os direitos reservados.</p>
-                    <p>Do circuito ao codigo, com disciplina e clareza tecnica.</p>
+                    <p>Do circuito ao código, com disciplina e clareza técnica.</p>
                 </div>
             </div>
         </footer>

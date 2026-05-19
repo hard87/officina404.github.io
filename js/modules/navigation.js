@@ -30,6 +30,19 @@ function initSmoothScroll() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    const getTargetFromHash = hash => {
+        if (!hash || hash === '#') {
+            return null;
+        }
+
+        try {
+            const id = decodeURIComponent(hash.slice(1));
+            return document.getElementById(id);
+        } catch (error) {
+            return null;
+        }
+    };
+
     links.forEach(link => {
         link.addEventListener('click', event => {
             if (link.classList.contains('skip-link')) {
@@ -41,7 +54,7 @@ function initSmoothScroll() {
                 return;
             }
 
-            const target = document.querySelector(href);
+            const target = getTargetFromHash(href);
             if (!target) {
                 return;
             }
@@ -53,6 +66,10 @@ function initSmoothScroll() {
             const behavior = prefersReducedMotion ? 'auto' : 'smooth';
 
             window.scrollTo({ top: targetTop, behavior });
+
+            if (history.pushState) {
+                history.pushState(null, '', `#${target.id}`);
+            }
 
             if (navLinks?.classList.contains('active')) {
                 navLinks.classList.remove('active');

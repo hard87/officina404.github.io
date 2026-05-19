@@ -102,14 +102,14 @@ export function validateEmail(email) {
     if (!EMAIL_REGEX.test(trimmedEmail)) {
         return {
             valid: false,
-            message: 'Por favor, informe um email valido.'
+            message: 'Por favor, informe um email válido.'
         };
     }
 
     if (trimmedEmail.length > 254) {
         return {
             valid: false,
-            message: 'Email muito longo. Maximo de 254 caracteres.'
+            message: 'Email muito longo. Máximo de 254 caracteres.'
         };
     }
 
@@ -117,7 +117,7 @@ export function validateEmail(email) {
     if (parts.length !== 2) {
         return {
             valid: false,
-            message: 'Formato de email invalido.'
+            message: 'Formato de email inválido.'
         };
     }
 
@@ -126,7 +126,7 @@ export function validateEmail(email) {
     if (localPart.length === 0 || localPart.length > 64) {
         return {
             valid: false,
-            message: 'Email invalido.'
+            message: 'Email inválido.'
         };
     }
 
@@ -165,7 +165,7 @@ export function validateName(name) {
     if (!nameRegex.test(trimmedName)) {
         return {
             valid: false,
-            message: 'Nome deve conter apenas letras e espacos.'
+            message: 'Nome deve conter apenas letras e espaços.'
         };
     }
 
@@ -188,7 +188,7 @@ export function validateMessage(message) {
     if (trimmedMessage.length < 10) {
         return {
             valid: false,
-            message: 'Mensagem muito curta. Minimo de 10 caracteres.'
+            message: 'Mensagem muito curta. Mínimo de 10 caracteres.'
         };
     }
 
@@ -238,7 +238,7 @@ export function checkOffensiveWords(text) {
         return {
             clean: false,
             foundWords,
-            message: 'Sua mensagem contem linguagem inapropriada. Ajuste o texto para continuar.'
+            message: 'Sua mensagem contém linguagem inapropriada. Ajuste o texto para continuar.'
         };
     }
 

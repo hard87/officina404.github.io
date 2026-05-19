@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto:; connect-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self'; upgrade-insecure-requests">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="format-detection" content="telephone=no">
@@ -43,9 +44,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap4Y3n9SW2PD8y6wMjnN3W1d1DP7q7qldaR+dx1z0N5N9NeBi6VldkzM4qEZOO4VfVj5Hc+1f2Fp3Fl8zYBZw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -53,17 +51,18 @@
     <a class="skip-link" href="#conteudo-principal">Pular para o conteudo principal</a>
     <!-- Header -->
     <header id="header">
-        <nav class="nav container" aria-label="Navegacao principal">
+        <nav class="nav container" aria-label="Navegação principal">
             <a class="logo" href="../index.html">Officina 404</a>
-            <button class="mobile-menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+            <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html#sobre">Sobre</a></li>
-                <li><a href="../index.html#areas">Areas</a></li>
+                <li><a href="../index.html#areas">Áreas</a></li>
                 <li><a href="../index.html#projetos">Projetos</a></li>
+                <li><a href="../index.html#credibilidade">Credibilidade</a></li>
                 <li><a href="../index.html#blog">Blog</a></li>
                 <li><a href="../index.html#contato">Contato</a></li>
             </ul>
@@ -75,12 +74,12 @@
         <section class="article-header">
             <div class="container article-shell">
             <a href="../index.html#blog" class="back-to-blog">
-                <i class="fas fa-arrow-left" aria-hidden="true"></i> Voltar ao Blog
+                <span aria-hidden="true">&larr;</span> Voltar ao Blog
             </a>
             <div class="article-meta" role="list" aria-label="Metadados do artigo">
-                <span class="article-meta__item" role="listitem"><i class="fas fa-user" aria-hidden="true"></i> Junior Godoi</span>
-                <span class="article-meta__item" role="listitem"><i class="fas fa-calendar" aria-hidden="true"></i> 18 Out. 2025</span>
-                <span class="article-meta__item" role="listitem"><i class="fas fa-clock" aria-hidden="true"></i> 10 min de leitura</span>
+                <span class="article-meta__item" role="listitem">Autor: Junior Godoi</span>
+                <span class="article-meta__item" role="listitem">Publicado: 18 Out. 2025</span>
+                <span class="article-meta__item" role="listitem">Leitura: 10 min</span>
             </div>
             <h1 class="article-title">ESP32 vs Arduino:</h1>
             <p class="article-deck">Uma Análise Comparativa de Arquiteturas e Aplicações</p>
@@ -268,7 +267,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Officina 404 - Junior Godoi. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Officina 404 - Junior Godoi. Todos os direitos reservados.</p>
             <p class="tagline">Do circuito ao código: ideias que funcionam.</p>
         </div>
     </footer>

@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto:; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self'; upgrade-insecure-requests" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="dark" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>404 - Página não encontrada | Officina 404</title>
+    <meta name="description" content="Página 404 da Officina 404: o caminho não foi encontrado, mas o laboratório técnico continua acessível." />
+    <title>Erro 404 | Officina 404</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -14,15 +19,17 @@
     <main class="page" aria-label="Página não encontrada">
         <section class="error-page">
             <div class="container error-card">
-                <p class="eyebrow">Erro 404</p>
-                <h1>Página não encontrada.</h1>
+                <span class="error-code" aria-hidden="true">404</span>
+                <p class="eyebrow">Officina 404</p>
+                <h1>Página não encontrada é só o início.</h1>
                 <p>
-                    O caminho procurado não está ativo ou foi movido. Vamos redirecioná-lo para o hub técnico
-                    da Officina 404.
+                    O caminho procurado não está ativo ou foi movido. Na Officina 404, esse erro vira ponto de partida:
+                    volte ao hub técnico, revise os projetos ou fale direto sobre uma iniciativa.
                 </p>
                 <div class="hero-cta">
                     <a class="btn btn-primary" href="index.html">Voltar para a home</a>
                     <a class="btn btn-secondary" href="index.html#projetos">Ver projetos</a>
+                    <a class="btn btn-secondary" href="index.html#contato">Falar com a Officina 404</a>
                 </div>
             </div>
         </section>

@@ -11,8 +11,8 @@ import {
     showFormError
 } from './form-validation.js';
 
-const SIMULATED_SUBMIT_DELAY_MS = 900;
 const REQUEST_TIMEOUT_MS = 10000;
+const DEFAULT_FALLBACK_EMAIL = 'contato@officina404.com.br';
 
 function getContactFields(form) {
     return {
@@ -27,6 +27,7 @@ function getContactFields(form) {
 function setSubmittingState(form, submitButton, isSubmitting) {
     form.dataset.submitting = isSubmitting ? 'true' : 'false';
     form.classList.toggle('is-submitting', isSubmitting);
+    form.setAttribute('aria-busy', String(isSubmitting));
 
     if (!submitButton) {
         return;
@@ -35,15 +36,37 @@ function setSubmittingState(form, submitButton, isSubmitting) {
     const defaultLabel = submitButton.dataset.submitText || submitButton.textContent || 'Enviar';
 
     submitButton.disabled = isSubmitting;
-    submitButton.textContent = isSubmitting ? 'Enviando...' : defaultLabel;
+    submitButton.textContent = isSubmitting ? 'Preparando...' : defaultLabel;
+}
+
+function getSafeFallbackEmail(form) {
+    const configuredEmail = (form.dataset.fallbackEmail || DEFAULT_FALLBACK_EMAIL).trim();
+    const safeEmail = configuredEmail.replace(/[^\w.+@-]/g, '');
+
+    return safeEmail || DEFAULT_FALLBACK_EMAIL;
+}
+
+function buildMailtoUrl(email, payload) {
+    const subject = `Briefing técnico - ${payload.name}`;
+    const body = [
+        `Nome: ${payload.name}`,
+        `Email: ${payload.email}`,
+        '',
+        'Desafio:',
+        payload.message
+    ].join('\n');
+
+    return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 async function dispatchContactPayload(form, payload) {
     const endpoint = (form.dataset.formEndpoint || '').trim();
 
     if (!endpoint) {
-        await new Promise(resolve => setTimeout(resolve, SIMULATED_SUBMIT_DELAY_MS));
-        return;
+        window.location.href = buildMailtoUrl(getSafeFallbackEmail(form), payload);
+        return {
+            mode: 'mailto'
+        };
     }
 
     const controller = new AbortController();
@@ -64,6 +87,10 @@ async function dispatchContactPayload(form, payload) {
         if (!response.ok) {
             throw new Error(`Erro no envio (${response.status})`);
         }
+
+        return {
+            mode: 'endpoint'
+        };
     } finally {
         clearTimeout(timeoutId);
     }
@@ -151,13 +178,17 @@ export function initContactForms() {
             setSubmittingState(form, submitButton, true);
 
             try {
-                await dispatchContactPayload(form, {
+                const result = await dispatchContactPayload(form, {
                     ...payload,
                     source: window.location.pathname,
                     submittedAt: new Date().toISOString()
                 });
 
-                showSuccessMessage(form, 'Obrigado! Retornaremos com um plano tecnico objetivo.');
+                const successMessage = result?.mode === 'mailto'
+                    ? 'Briefing validado. Seu cliente de email foi preparado; se ele não abrir, envie para contato@officina404.com.br.'
+                    : 'Obrigado! Retornaremos com um plano técnico objetivo.';
+
+                showSuccessMessage(form, successMessage);
                 form.reset();
             } catch (error) {
                 showFormError(form, 'Falha ao enviar agora. Tente novamente em alguns instantes.');

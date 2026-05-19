@@ -10,18 +10,19 @@ export function initMenu() {
     if (!menuToggle || !navLinks) return;
 
     const getFocusableLinks = () => Array.from(navLinks.querySelectorAll('a[href]'));
+    const setMenuState = isOpen => {
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+        menuToggle.classList.toggle('active', isOpen);
+        navLinks.classList.toggle('active', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
 
     // Toggle do menu ao clicar no botao
     menuToggle.addEventListener('click', () => {
         const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
 
-        // Atualizar estado
-        menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-        menuToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-
-        // Prevenir scroll do body quando menu esta aberto
-        document.body.style.overflow = !isExpanded ? 'hidden' : '';
+        setMenuState(!isExpanded);
 
         if (!isExpanded) {
             const focusableLinks = getFocusableLinks();
@@ -74,9 +75,6 @@ export function initMenu() {
 
     // Funcao auxiliar para fechar o menu
     function closeMenu() {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
+        setMenuState(false);
     }
 }
