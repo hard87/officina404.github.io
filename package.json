@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "build:content": "node scripts/build-content.js",
+    "validate": "node scripts/validate-site.js",
+    "check": "npm run build:content && npm run validate"
+  }
+}

@@ -5,7 +5,19 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://officina404.com.br/blog/arquiteturas-processadores.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://officina404.com.br/blog/esp32-vs-arduino.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://officina404.com.br/blog/lei-de-moore-limites-silicio.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://officina404.com.br/blog/linux-anatomia-sistemas-operacionais.html</loc>
         <priority>0.7</priority>
     </url>
 </urlset>

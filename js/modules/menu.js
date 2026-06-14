@@ -1,80 +1,114 @@
 /**
  * MÓDULO: Menu Mobile
- * Controla a abertura/fechamento do menu de navegação em dispositivos móveis
+ * Centraliza estado visual, acessibilidade e bloqueio de scroll do menu.
  */
+
+let menuController = null;
+
+function createMenuController(menuToggle, navLinks) {
+    const getFocusableLinks = () => Array.from(navLinks.querySelectorAll('a[href]'));
+    const isOpen = () => menuToggle.getAttribute('aria-expanded') === 'true';
+
+    const setMenuState = open => {
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        menuToggle.classList.toggle('active', open);
+        navLinks.classList.toggle('active', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    const open = () => {
+        setMenuState(true);
+        getFocusableLinks()[0]?.focus();
+    };
+
+    const close = ({ restoreFocus = false } = {}) => {
+        setMenuState(false);
+
+        if (restoreFocus) {
+            menuToggle.focus();
+        }
+    };
+
+    const toggle = () => {
+        if (isOpen()) {
+            close();
+            return;
+        }
+
+        open();
+    };
+
+    return {
+        close,
+        isOpen,
+        toggle
+    };
+}
+
+export function closeMenu(options) {
+    menuController?.close(options);
+}
+
+export function isMenuOpen() {
+    return Boolean(menuController?.isOpen());
+}
 
 export function initMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const controlledId = menuToggle?.getAttribute('aria-controls');
+    const navLinks = controlledId ? document.getElementById(controlledId) : document.querySelector('.nav-links');
 
-    if (!menuToggle || !navLinks) return;
-
-    const getFocusableLinks = () => Array.from(navLinks.querySelectorAll('a[href]'));
-    const setMenuState = isOpen => {
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-        menuToggle.classList.toggle('active', isOpen);
-        navLinks.classList.toggle('active', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    };
-
-    // Toggle do menu ao clicar no botao
-    menuToggle.addEventListener('click', () => {
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-
-        setMenuState(!isExpanded);
-
-        if (!isExpanded) {
-            const focusableLinks = getFocusableLinks();
-            focusableLinks[0]?.focus();
-        }
-    });
-
-    // Fechar menu ao clicar em um link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            closeMenu();
-        });
-    });
-
-    // Fechar menu ao clicar fora dele
-    document.addEventListener('click', (e) => {
-        const isClickInsideMenu = navLinks.contains(e.target);
-        const isClickOnToggle = menuToggle.contains(e.target);
-
-        if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains('active')) {
-            closeMenu();
-        }
-    });
-
-    // Fechar menu ao pressionar ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-            closeMenu();
-            menuToggle.focus();
-        }
-
-        if (e.key === 'Tab' && navLinks.classList.contains('active')) {
-            const focusableLinks = getFocusableLinks();
-            if (focusableLinks.length === 0) {
-                return;
-            }
-
-            const first = focusableLinks[0];
-            const last = focusableLinks[focusableLinks.length - 1];
-
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-            }
-        }
-    });
-
-    // Funcao auxiliar para fechar o menu
-    function closeMenu() {
-        setMenuState(false);
+    if (!menuToggle || !navLinks) {
+        return;
     }
+
+    menuController = createMenuController(menuToggle, navLinks);
+    menuController.close();
+
+    menuToggle.addEventListener('click', menuController.toggle);
+
+    navLinks.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', () => closeMenu());
+    });
+
+    document.addEventListener('click', event => {
+        const isClickInsideMenu = navLinks.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+
+        if (isMenuOpen() && !isClickInsideMenu && !isClickOnToggle) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (!isMenuOpen()) {
+            return;
+        }
+
+        if (event.key === 'Escape') {
+            closeMenu({ restoreFocus: true });
+            return;
+        }
+
+        if (event.key !== 'Tab') {
+            return;
+        }
+
+        const focusableLinks = Array.from(navLinks.querySelectorAll('a[href]'));
+        if (focusableLinks.length === 0) {
+            return;
+        }
+
+        const first = focusableLinks[0];
+        const last = focusableLinks[focusableLinks.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
 }

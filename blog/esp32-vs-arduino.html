@@ -3,252 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto:; connect-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto:; connect-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'sha256-UA+S79QfBukvjozkcpt6zT8SVIlCujavxkpEF6B3eSg='; upgrade-insecure-requests">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="format-detection" content="telephone=no">
     <meta name="color-scheme" content="dark">
-    
-    <!-- SEO Meta Tags -->
-    <title>ESP32 vs Arduino: Análise Comparativa | Officina 404</title>
-    <meta name="description" content="Análise técnica comparando ESP32 e Arduino Uno: arquitetura, conectividade, casos de uso e aplicações ideais para IoT e sistemas embarcados.">
-    <meta name="keywords" content="ESP32, Arduino, IoT, microcontroladores, sistemas embarcados, Wi-Fi, Bluetooth, maker, eletrônica">
+    <meta name="description" content="Compare as diferenças entre o ESP32 e o Arduino Uno e descubra qual é a melhor escolha para o seu projeto.">
     <meta name="author" content="Junior Godoi - Officina 404">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
     <meta property="og:site_name" content="Officina 404">
-    <meta property="og:title" content="ESP32 vs Arduino: Uma Análise Comparativa">
-    <meta property="og:description" content="Comparação técnica entre ESP32 e Arduino Uno, explorando arquiteturas, conectividade e aplicações ideais.">
+    <meta property="og:title" content="ESP32 vs Arduino: Análise Comparativa | Officina 404">
+    <meta property="og:description" content="Compare as diferenças entre o ESP32 e o Arduino Uno e descubra qual é a melhor escolha para o seu projeto.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://officina404.com.br/blog/esp32-vs-arduino.html">
-    <meta property="og:image" content="https://officina404.com.br/assets/images/blog-esp32-arduino.jpg">
+    <meta property="og:image" content="https://officina404.com.br/assets/images/blog-esp32-arduino.webp">
     <meta property="og:image:alt" content="Placas ESP32 e Arduino em bancada tecnica para comparativo">
     <meta property="og:locale" content="pt_BR">
     <meta property="article:published_time" content="2025-10-18">
-    <meta property="article:author" content="Junior Godoi">
-    
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ESP32 vs Arduino: Uma Análise Comparativa">
-    <meta name="twitter:description" content="Comparação técnica entre ESP32 e Arduino Uno para IoT e sistemas embarcados.">
-    <meta name="twitter:image" content="https://officina404.com.br/assets/images/blog-esp32-arduino.jpg">
-    <meta name="twitter:image:alt" content="Placas ESP32 e Arduino em bancada tecnica para comparativo">
-    
-    <!-- Canonical -->
+    <meta name="twitter:title" content="ESP32 vs Arduino: Análise Comparativa | Officina 404">
+    <meta name="twitter:description" content="Compare as diferenças entre o ESP32 e o Arduino Uno e descubra qual é a melhor escolha para o seu projeto.">
+    <meta name="twitter:image" content="https://officina404.com.br/assets/images/blog-esp32-arduino.webp">
+    <title>ESP32 vs Arduino: Análise Comparativa | Officina 404</title>
     <link rel="canonical" href="https://officina404.com.br/blog/esp32-vs-arduino.html">
     <link rel="icon" type="image/png" href="../assets/images/og-image.png">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ESP32 vs Arduino: Análise Comparativa","description":"Compare as diferenças entre o ESP32 e o Arduino Uno e descubra qual é a melhor escolha para o seu projeto.","author":{"@type":"Person","name":"Junior Godoi - Officina 404"},"datePublished":"2025-10-18","dateModified":"2025-10-18","image":"https://officina404.com.br/assets/images/blog-esp32-arduino.webp","mainEntityOfPage":"https://officina404.com.br/blog/esp32-vs-arduino.html"}</script>
 </head>
 <body>
     <a class="skip-link" href="#conteudo-principal">Pular para o conteudo principal</a>
-    <!-- Header -->
     <header id="header">
         <nav class="nav container" aria-label="Navegação principal">
-            <a class="logo" href="../index.html">Officina 404</a>
-            <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+            <a class="logo" href="../index.html#conteudo-principal">Officina 404</a>
+            <button class="mobile-menu-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html#sobre">Sobre</a></li>
-                <li><a href="../index.html#areas">Áreas</a></li>
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="../index.html#projetos">Projetos</a></li>
-                <li><a href="../index.html#credibilidade">Credibilidade</a></li>
                 <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#sobre">Sobre</a></li>
                 <li><a href="../index.html#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="article-page" id="conteudo-principal">
-        <!-- Article Header -->
         <section class="article-header">
             <div class="container article-shell">
-            <a href="../index.html#blog" class="back-to-blog">
-                <span aria-hidden="true">&larr;</span> Voltar ao Blog
-            </a>
-            <div class="article-meta" role="list" aria-label="Metadados do artigo">
-                <span class="article-meta__item" role="listitem">Autor: Junior Godoi</span>
-                <span class="article-meta__item" role="listitem">Publicado: 18 Out. 2025</span>
-                <span class="article-meta__item" role="listitem">Leitura: 10 min</span>
-            </div>
-            <h1 class="article-title">ESP32 vs Arduino:</h1>
-            <p class="article-deck">Uma Análise Comparativa de Arquiteturas e Aplicações</p>
-            <p class="article-subtitle">Compare as diferenças entre o ESP32 e o Arduino Uno e descubra qual é a melhor escolha para o seu projeto.</p>
+                <a href="../index.html#blog" class="back-to-blog">
+                    <span aria-hidden="true">&larr;</span> Voltar ao Blog
+                </a>
+                <div class="article-meta" role="list" aria-label="Metadados do artigo">
+                    <span class="article-meta__item" role="listitem">Artigo</span>
+                    <span class="article-meta__item" role="listitem">Autor: Junior Godoi</span>
+                    <span class="article-meta__item" role="listitem">Publicado: 18 Out. 2025</span>
+                    <span class="article-meta__item" role="listitem">Leitura: 10 min</span>
+                </div>
+                <h1 class="article-title">ESP32 vs Arduino:</h1>
+                <p class="article-deck">Uma Análise Comparativa de Arquiteturas e Aplicações</p>
+                <p class="article-subtitle">Compare as diferenças entre o ESP32 e o Arduino Uno e descubra qual é a melhor escolha para o seu projeto.</p>
             </div>
         </section>
 
-        <!-- Article Content -->
         <section class="article-content">
             <div class="container article-shell">
                 <article class="article-body">
-                <h2>Introdução</h2>
-                <p>O Arduino revolucionou a forma como makers, estudantes e profissionais se aproximam da eletrônica embarcada. Com sua simplicidade característica e uma comunidade global vibrante, tornou-se a porta de entrada natural para quem deseja transformar ideias em circuitos funcionais. No entanto, à medida que a Internet das Coisas (IoT) ganhou protagonismo, surgiu a necessidade de plataformas mais robustas, capazes de conectar dispositivos à rede sem depender de módulos externos. E nesse contexto que o ESP32 emerge como uma evolução natural, trazendo conectividade nativa e poder de processamento ampliado.</p>
-                
-                <p>Este artigo propõe uma análise comparativa entre o Arduino Uno e o ESP32, explorando suas arquiteturas, capacidades e aplicações ideais. Não se trata de declarar um vencedor, mas de compreender quando cada plataforma brilha e como ambas podem coexistir no arsenal de qualquer desenvolvedor.</p>
-
-                <h2>Núcleo do Processador: Arquitetura e Desempenho</h2>
-                <p>A diferença mais fundamental entre Arduino Uno e ESP32 reside em suas arquiteturas de processamento. O Arduino Uno utiliza o microcontrolador <strong>ATmega328P</strong>, baseado na arquitetura AVR de 8 bits e operando em clock de 16 MHz. Trata-se de um processador single-core, projetado para executar uma tarefa por vez de forma sequencial e previsível.</p>
-                
-                <p>Em contraste, o ESP32 é equipado com um processador <strong>Xtensa LX6 dual-core de 32 bits</strong>, capaz de operar em até 240 MHz. Essa arquitetura permite execução paralela de tarefas, tornando possível processar dados de sensores enquanto mantém uma conexão Wi-Fi ativa, por exemplo. A diferença de bits (8 vs 32) também se traduz em maior capacidade de manipulação de dados complexos e operações matemáticas mais eficientes.</p>
-                
-                <p>Na prática, isso significa que o Arduino Uno é ideal para controlar LEDs, ler sensores analógicos simples e executar lógicas de automação básica. Já o ESP32 se destaca em cenários que exigem processamento simultâneo, como capturar imagens de uma câmera, transmitir dados via Wi-Fi e responder a comandos MQTT ao mesmo tempo.</p>
-                
-                <p><strong>Exemplo prático:</strong> Um projeto de monitoramento de temperatura com Arduino Uno pode ler um sensor DHT22 e exibir os dados em um display LCD. O mesmo projeto com ESP32 pode, além disso, enviar os dados para um servidor em nuvem, exibir um dashboard web local e receber comandos remotos para ajustar parâmetros - tudo simultaneamente.</p>
-
-                <h2>Conectividade: O Diferencial do ESP32</h2>
-                <p>Talvez o aspecto mais decisivo na escolha entre Arduino e ESP32 seja a conectividade. O Arduino Uno não possui Wi-Fi ou Bluetooth nativos, exigindo o uso de shields adicionais como o ESP8266, módulos Bluetooth HC-05 ou Ethernet Shield. Essa abordagem modular aumenta o custo, a complexidade da montagem e o consumo de energia, além de ocupar pinos valiosos da placa.</p>
-                
-                <p>O ESP32, por outro lado, integra <strong>Wi-Fi 802.11 b/g/n</strong> e <strong>Bluetooth 4.2 (BLE e clássico)</strong> diretamente no chip. Isso elimina a necessidade de componentes externos, reduz o tamanho físico do projeto e simplifica drasticamente o desenvolvimento de aplicações conectadas. A conectividade nativa também permite que o ESP32 atue como ponto de acesso (AP), servidor web local ou cliente MQTT sem esforço adicional.</p>
-                
-                <p>Essa diferença é especialmente relevante em projetos de <strong>IoT e automação residencial</strong>. Um sistema de monitoramento de consumo energético, por exemplo, pode ser implementado com ESP32 de forma direta: sensores de corrente conectados ao ADC, dados processados localmente e enviados para um broker MQTT ou dashboard Grafana. Com Arduino Uno, o mesmo projeto exigiria integração com módulos externos, aumentando a complexidade e o tempo de desenvolvimento.</p>
-                
-                <p><strong>Custo-benefício:</strong> Embora o Arduino Uno seja mais acessível isoladamente, ao adicionar um módulo Wi-Fi, o custo total frequentemente se equipara ou supera o de um ESP32, que já oferece conectividade integrada.</p>
-
-                <h2>Ecossistema e Comunidade: Simplicidade vs Robustez</h2>
-                <p>O Arduino construiu ao longo dos anos um dos ecossistemas mais acessíveis e bem documentados da eletrônica maker. Sua IDE intuitiva, vasta biblioteca de exemplos e comunidade ativa tornam o aprendizado fluido e acolhedor. Para iniciantes, a simplicidade do Arduino é inestimável: basta conectar, carregar um sketch e ver o LED piscar. Essa experiência imediata de sucesso é fundamental para quem está dando os primeiros passos.</p>
-                
-                <p>O ESP32, embora compatível com a Arduino IDE, possui um ecossistema mais robusto e voltado para aplicações avançadas. Ele suporta <strong>FreeRTOS</strong> (sistema operacional em tempo real), permitindo gerenciamento de múltiplas tarefas com prioridades definidas. Além disso, oferece recursos como criptografia de hardware, comunicação segura (TLS/SSL), suporte a OTA (Over-The-Air updates) e integração nativa com plataformas como AWS IoT, Google Cloud e MQTT.</p>
-                
-                <p>Ambas as plataformas possuem comunidades ativas, mas com perfis distintos. O Arduino atrai educadores, hobistas e quem busca prototipagem rápida. O ESP32 atrai desenvolvedores de IoT, profissionais de sistemas embarcados e quem deseja explorar conectividade avançada e desempenho superior.</p>
-                
-                <p><strong>Curva de aprendizado:</strong> O Arduino é mais gentil para iniciantes, enquanto o ESP32 recompensa quem já possui fundamentos sólidos e deseja expandir para aplicações conectadas e complexas.</p>
-
-                <h2>Casos de Uso Ideais: Quando Escolher Cada Plataforma</h2>
-                <p>A escolha entre Arduino Uno e ESP32 deve ser guiada pelas necessidades específicas do projeto. Não se trata de substituição, mas de complementaridade.</p>
-
-                <h3>Escolha o Arduino Uno quando:</h3>
-                <ul>
+                    <h2>Introdução</h2>
+                    <p>O Arduino revolucionou a forma como makers, estudantes e profissionais se aproximam da eletrônica embarcada. Com sua simplicidade característica e uma comunidade global vibrante, tornou-se a porta de entrada natural para quem deseja transformar ideias em circuitos funcionais. No entanto, à medida que a Internet das Coisas (IoT) ganhou protagonismo, surgiu a necessidade de plataformas mais robustas, capazes de conectar dispositivos à rede sem depender de módulos externos. E nesse contexto que o ESP32 emerge como uma evolução natural, trazendo conectividade nativa e poder de processamento ampliado.</p>
+                    <p>Este artigo propõe uma análise comparativa entre o Arduino Uno e o ESP32, explorando suas arquiteturas, capacidades e aplicações ideais. Não se trata de declarar um vencedor, mas de compreender quando cada plataforma brilha e como ambas podem coexistir no arsenal de qualquer desenvolvedor.</p>
+                    <h2>Núcleo do Processador: Arquitetura e Desempenho</h2>
+                    <p>A diferença mais fundamental entre Arduino Uno e ESP32 reside em suas arquiteturas de processamento. O Arduino Uno utiliza o microcontrolador <strong>ATmega328P</strong>, baseado na arquitetura AVR de 8 bits e operando em clock de 16 MHz. Trata-se de um processador single-core, projetado para executar uma tarefa por vez de forma sequencial e previsível.</p>
+                    <p>Em contraste, o ESP32 é equipado com um processador <strong>Xtensa LX6 dual-core de 32 bits</strong>, capaz de operar em até 240 MHz. Essa arquitetura permite execução paralela de tarefas, tornando possível processar dados de sensores enquanto mantém uma conexão Wi-Fi ativa, por exemplo. A diferença de bits (8 vs 32) também se traduz em maior capacidade de manipulação de dados complexos e operações matemáticas mais eficientes.</p>
+                    <p>Na prática, isso significa que o Arduino Uno é ideal para controlar LEDs, ler sensores analógicos simples e executar lógicas de automação básica. Já o ESP32 se destaca em cenários que exigem processamento simultâneo, como capturar imagens de uma câmera, transmitir dados via Wi-Fi e responder a comandos MQTT ao mesmo tempo.</p>
+                    <p><strong>Exemplo prático:</strong> Um projeto de monitoramento de temperatura com Arduino Uno pode ler um sensor DHT22 e exibir os dados em um display LCD. O mesmo projeto com ESP32 pode, além disso, enviar os dados para um servidor em nuvem, exibir um dashboard web local e receber comandos remotos para ajustar parâmetros - tudo simultaneamente.</p>
+                    <h2>Conectividade: O Diferencial do ESP32</h2>
+                    <p>Talvez o aspecto mais decisivo na escolha entre Arduino e ESP32 seja a conectividade. O Arduino Uno não possui Wi-Fi ou Bluetooth nativos, exigindo o uso de shields adicionais como o ESP8266, módulos Bluetooth HC-05 ou Ethernet Shield. Essa abordagem modular aumenta o custo, a complexidade da montagem e o consumo de energia, além de ocupar pinos valiosos da placa.</p>
+                    <p>O ESP32, por outro lado, integra <strong>Wi-Fi 802.11 b/g/n</strong> e <strong>Bluetooth 4.2 (BLE e clássico)</strong> diretamente no chip. Isso elimina a necessidade de componentes externos, reduz o tamanho físico do projeto e simplifica drasticamente o desenvolvimento de aplicações conectadas. A conectividade nativa também permite que o ESP32 atue como ponto de acesso (AP), servidor web local ou cliente MQTT sem esforço adicional.</p>
+                    <p>Essa diferença é especialmente relevante em projetos de <strong>IoT e automação residencial</strong>. Um sistema de monitoramento de consumo energético, por exemplo, pode ser implementado com ESP32 de forma direta: sensores de corrente conectados ao ADC, dados processados localmente e enviados para um broker MQTT ou dashboard Grafana. Com Arduino Uno, o mesmo projeto exigiria integração com módulos externos, aumentando a complexidade e o tempo de desenvolvimento.</p>
+                    <p><strong>Custo-benefício:</strong> Embora o Arduino Uno seja mais acessível isoladamente, ao adicionar um módulo Wi-Fi, o custo total frequentemente se equipara ou supera o de um ESP32, que já oferece conectividade integrada.</p>
+                    <h2>Ecossistema e Comunidade: Simplicidade vs Robustez</h2>
+                    <p>O Arduino construiu ao longo dos anos um dos ecossistemas mais acessíveis e bem documentados da eletrônica maker. Sua IDE intuitiva, vasta biblioteca de exemplos e comunidade ativa tornam o aprendizado fluido e acolhedor. Para iniciantes, a simplicidade do Arduino é inestimável: basta conectar, carregar um sketch e ver o LED piscar. Essa experiência imediata de sucesso é fundamental para quem está dando os primeiros passos.</p>
+                    <p>O ESP32, embora compatível com a Arduino IDE, possui um ecossistema mais robusto e voltado para aplicações avançadas. Ele suporta <strong>FreeRTOS</strong> (sistema operacional em tempo real), permitindo gerenciamento de múltiplas tarefas com prioridades definidas. Além disso, oferece recursos como criptografia de hardware, comunicação segura (TLS/SSL), suporte a OTA (Over-The-Air updates) e integração nativa com plataformas como AWS IoT, Google Cloud e MQTT.</p>
+                    <p>Ambas as plataformas possuem comunidades ativas, mas com perfis distintos. O Arduino atrai educadores, hobistas e quem busca prototipagem rápida. O ESP32 atrai desenvolvedores de IoT, profissionais de sistemas embarcados e quem deseja explorar conectividade avançada e desempenho superior.</p>
+                    <p><strong>Curva de aprendizado:</strong> O Arduino é mais gentil para iniciantes, enquanto o ESP32 recompensa quem já possui fundamentos sólidos e deseja expandir para aplicações conectadas e complexas.</p>
+                    <h2>Casos de Uso Ideais: Quando Escolher Cada Plataforma</h2>
+                    <p>A escolha entre Arduino Uno e ESP32 deve ser guiada pelas necessidades específicas do projeto. Não se trata de substituição, mas de complementaridade.</p>
+                    <h3>Escolha o Arduino Uno quando:</h3>
+                    <ul>
                     <li>O projeto envolve <strong>automação simples</strong> (controle de motores, LEDs, relés)</li>
                     <li>Você está <strong>aprendendo eletrônica</strong> e programação embarcada</li>
                     <li>Precisa de <strong>baixo consumo energético</strong> em aplicações desconectadas</li>
                     <li>O foco é <strong>prototipagem rápida</strong> sem conectividade</li>
                     <li>Trabalha com <strong>sensores analógicos</strong> e lógica sequencial básica</li>
-                </ul>
-
-                <p><strong>Exemplos práticos:</strong></p>
-                <ul>
+                    </ul>
+                    <p><strong>Exemplos práticos:</strong></p>
+                    <ul>
                     <li>Sistema de irrigação automatizado por timer</li>
                     <li>Controle de iluminação RGB com potenciômetros</li>
                     <li>Leitor de sensores para projetos educacionais</li>
                     <li>Robôs autônomos simples com sensores ultrassônicos</li>
-                </ul>
-
-                <h3>Escolha o ESP32 quando:</h3>
-                <ul>
+                    </ul>
+                    <h3>Escolha o ESP32 quando:</h3>
+                    <ul>
                     <li>O projeto exige <strong>conectividade com a internet</strong> (Wi-Fi, MQTT, HTTP)</li>
                     <li>Precisa de <strong>desempenho superior</strong> e processamento paralelo</li>
                     <li>Deseja implementar <strong>dashboards web</strong> ou controle remoto</li>
                     <li>Trabalha com <strong>múltiplos sensores simultâneos</strong> e processamento de dados</li>
                     <li>Necessita de <strong>atualizações OTA</strong> e comunicação segura</li>
-                </ul>
-
-                <p><strong>Exemplos práticos:</strong></p>
-                <ul>
+                    </ul>
+                    <p><strong>Exemplos práticos:</strong></p>
+                    <ul>
                     <li>Monitoramento remoto de consumo energético com dashboard Grafana</li>
                     <li>Estação meteorológica IoT com envio de dados para nuvem</li>
                     <li>Sistema de automação residencial controlado por aplicativo</li>
                     <li>Câmera de segurança com streaming via Wi-Fi</li>
                     <li>Integração com assistentes virtuais (Alexa, Google Home)</li>
-                </ul>
-
-                <h2>Especificações Técnicas Comparadas</h2>
-                <div class="article-table-wrap" role="region" aria-label="Tabela comparativa entre Arduino Uno e ESP32" tabindex="0">
-                    <table class="article-table">
-                    <thead>
-                        <tr>
-                            <th>Característica</th>
-                            <th>Arduino Uno</th>
-                            <th>ESP32</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Processador</strong></td>
-                            <td>ATmega328P (8-bit, 16 MHz)</td>
-                            <td>Xtensa LX6 Dual-Core (32-bit, até 240 MHz)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Memória Flash</strong></td>
-                            <td>32 KB</td>
-                            <td>4 MB (típico)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>SRAM</strong></td>
-                            <td>2 KB</td>
-                            <td>520 KB</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Wi-Fi</strong></td>
-                            <td>Não (requer shield)</td>
-                            <td>802.11 b/g/n integrado</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bluetooth</strong></td>
-                            <td>Não (requer módulo)</td>
-                            <td>BLE 4.2 + Clássico integrado</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pinos GPIO</strong></td>
-                            <td>14 (6 PWM)</td>
-                            <td>34 (16 PWM)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>ADC</strong></td>
-                            <td>6 canais (10-bit)</td>
-                            <td>18 canais (12-bit)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Tensão de operação</strong></td>
-                            <td>5V</td>
-                            <td>3.3V</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Consumo energético</strong></td>
-                            <td>~50 mA</td>
-                            <td>~80-240 mA (variável)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Preço médio</strong></td>
-                            <td>R$ 40-60</td>
-                            <td>R$ 30-50</td>
-                        </tr>
-                    </tbody>
-                    </table>
-                </div>
-
-                <h2>Considerações sobre Consumo Energético</h2>
-                <p>Um aspecto frequentemente negligenciado é o consumo de energia. O Arduino Uno, operando em 5V e com arquitetura mais simples, consome cerca de 50 mA em operação normal. O ESP32, devido ao processamento mais intenso e conectividade ativa, pode consumir entre 80 mA e 240 mA, dependendo do uso de Wi-Fi e Bluetooth.</p>
-                
-                <p>Para projetos alimentados por bateria, o Arduino pode ser mais vantajoso em aplicações desconectadas. No entanto, o ESP32 oferece modos de <strong>deep sleep</strong> que reduzem o consumo para microamperes, tornando-o viável para dispositivos IoT de longa duração que acordam periodicamente para enviar dados.</p>
-
-                <h2>Compatibilidade e Migração</h2>
-                <p>Uma vantagem significativa do ESP32 é sua compatibilidade com a Arduino IDE e bibliotecas existentes. Isso significa que desenvolvedores familiarizados com Arduino podem migrar gradualmente para o ESP32, aproveitando conhecimentos prévios enquanto exploram novos recursos.</p>
-                
-                <p>Bibliotecas populares como <strong>Adafruit Sensor</strong>, <strong>PubSubClient (MQTT)</strong>, <strong>WiFiManager</strong> e <strong>ArduinoJson</strong> funcionam perfeitamente em ambas as plataformas, facilitando a transição e reutilização de código.</p>
-
-                <h2>Conclusão: Complementaridade, Não Substituição</h2>
-                <p>A comparação entre Arduino Uno e ESP32 revela não uma competição, mas uma relação de complementaridade. O Arduino permanece como a escolha ideal para quem busca compreender os fundamentos da eletrônica embarcada, oferecendo simplicidade, estabilidade e uma curva de aprendizado suave. E a plataforma perfeita para transformar conceitos em protótipos tangíveis sem a complexidade de conectividade e multitarefas.</p>
-                
-                <p>O ESP32, por sua vez, expande esses conceitos para o mundo conectado. Ele não substitui o Arduino, mas oferece o próximo passo natural para quem deseja explorar IoT, automação avançada e sistemas embarcados modernos. Sua conectividade nativa, poder de processamento e ecossistema robusto o tornam indispensável em projetos que exigem interação com a internet e desempenho superior.</p>
-                
-                <p>No fim, a escolha entre Arduino e ESP32 reflete o estágio do projeto e os objetivos do desenvolvedor. Ambos têm seu lugar no arsenal de qualquer maker ou profissional de eletrônica. O importante é reconhecer que cada plataforma possui suas forças e que o verdadeiro poder está em saber quando aplicar cada uma delas.</p>
-                
-                <p>O aprendizado técnico é uma jornada contínua. Comece com o Arduino para dominar os fundamentos. Evolua para o ESP32 quando estiver pronto para conectar suas criações ao mundo. E, acima de tudo, continue experimentando, criando e compartilhando conhecimento.</p>
-
-                <div class="article-cta">
-                    <p><strong>Quer explorar mais sobre IoT e sistemas embarcados?</strong> Confira outros projetos e análises técnicas aqui no blog da Officina 404. Do circuito ao código: ideias que funcionam.</p>
-                </div>
-
+                    </ul>
+                    <h2>Especificações Técnicas Comparadas</h2>
+                    <div class="article-table-wrap" role="region" aria-label="Tabela do artigo" tabindex="0">
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Arduino Uno</th>
+                                    <th>ESP32</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Processador</strong></td>
+                                    <td>ATmega328P (8-bit, 16 MHz)</td>
+                                    <td>Xtensa LX6 Dual-Core (32-bit, até 240 MHz)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Memória Flash</strong></td>
+                                    <td>32 KB</td>
+                                    <td>4 MB (típico)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SRAM</strong></td>
+                                    <td>2 KB</td>
+                                    <td>520 KB</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Wi-Fi</strong></td>
+                                    <td>Não (requer shield)</td>
+                                    <td>802.11 b/g/n integrado</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bluetooth</strong></td>
+                                    <td>Não (requer módulo)</td>
+                                    <td>BLE 4.2 + Clássico integrado</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pinos GPIO</strong></td>
+                                    <td>14 (6 PWM)</td>
+                                    <td>34 (16 PWM)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ADC</strong></td>
+                                    <td>6 canais (10-bit)</td>
+                                    <td>18 canais (12-bit)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tensão de operação</strong></td>
+                                    <td>5V</td>
+                                    <td>3.3V</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Consumo energético</strong></td>
+                                    <td>~50 mA</td>
+                                    <td>~80-240 mA (variável)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Preço médio</strong></td>
+                                    <td>R$ 40-60</td>
+                                    <td>R$ 30-50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2>Considerações sobre Consumo Energético</h2>
+                    <p>Um aspecto frequentemente negligenciado é o consumo de energia. O Arduino Uno, operando em 5V e com arquitetura mais simples, consome cerca de 50 mA em operação normal. O ESP32, devido ao processamento mais intenso e conectividade ativa, pode consumir entre 80 mA e 240 mA, dependendo do uso de Wi-Fi e Bluetooth.</p>
+                    <p>Para projetos alimentados por bateria, o Arduino pode ser mais vantajoso em aplicações desconectadas. No entanto, o ESP32 oferece modos de <strong>deep sleep</strong> que reduzem o consumo para microamperes, tornando-o viável para dispositivos IoT de longa duração que acordam periodicamente para enviar dados.</p>
+                    <h2>Compatibilidade e Migração</h2>
+                    <p>Uma vantagem significativa do ESP32 é sua compatibilidade com a Arduino IDE e bibliotecas existentes. Isso significa que desenvolvedores familiarizados com Arduino podem migrar gradualmente para o ESP32, aproveitando conhecimentos prévios enquanto exploram novos recursos.</p>
+                    <p>Bibliotecas populares como <strong>Adafruit Sensor</strong>, <strong>PubSubClient (MQTT)</strong>, <strong>WiFiManager</strong> e <strong>ArduinoJson</strong> funcionam perfeitamente em ambas as plataformas, facilitando a transição e reutilização de código.</p>
+                    <h2>Conclusão: Complementaridade, Não Substituição</h2>
+                    <p>A comparação entre Arduino Uno e ESP32 revela não uma competição, mas uma relação de complementaridade. O Arduino permanece como a escolha ideal para quem busca compreender os fundamentos da eletrônica embarcada, oferecendo simplicidade, estabilidade e uma curva de aprendizado suave. E a plataforma perfeita para transformar conceitos em protótipos tangíveis sem a complexidade de conectividade e multitarefas.</p>
+                    <p>O ESP32, por sua vez, expande esses conceitos para o mundo conectado. Ele não substitui o Arduino, mas oferece o próximo passo natural para quem deseja explorar IoT, automação avançada e sistemas embarcados modernos. Sua conectividade nativa, poder de processamento e ecossistema robusto o tornam indispensável em projetos que exigem interação com a internet e desempenho superior.</p>
+                    <p>No fim, a escolha entre Arduino e ESP32 reflete o estágio do projeto e os objetivos do desenvolvedor. Ambos têm seu lugar no arsenal de qualquer maker ou profissional de eletrônica. O importante é reconhecer que cada plataforma possui suas forças e que o verdadeiro poder está em saber quando aplicar cada uma delas.</p>
+                    <p>O aprendizado técnico é uma jornada contínua. Comece com o Arduino para dominar os fundamentos. Evolua para o ESP32 quando estiver pronto para conectar suas criações ao mundo. E, acima de tudo, continue experimentando, criando e compartilhando conhecimento.</p>
+                    <div class="article-cta"><p><strong>Quer explorar mais sobre IoT e sistemas embarcados?</strong> Confira outros projetos e análises técnicas aqui no blog da Officina 404. Do circuito ao código: ideias que funcionam.</p></div>
                 <div class="article-tags">
                     <span class="article-tag">#ESP32</span>
                     <span class="article-tag">#Arduino</span>
@@ -264,15 +215,44 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Officina 404 - Junior Godoi. Todos os direitos reservados.</p>
-            <p class="tagline">Do circuito ao código: ideias que funcionam.</p>
+    <footer class="site-footer">
+        <div class="container footer-shell">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a class="footer-logo" href="../index.html#conteudo-principal">Officina 404</a>
+                    <p class="footer-signature">Hardware, software, infraestrutura e segurança com postura técnica e entrega confiável.</p>
+                </div>
+                <nav class="footer-links" aria-label="Links úteis do rodapé">
+                    <a href="../index.html#projetos">Projetos</a>
+                    <a href="../index.html#blog">Blog</a>
+                    <a href="../index.html#sobre">Sobre</a>
+                    <a href="../index.html#contato">Contato</a>
+                </nav>
+                <ul class="footer-social" aria-label="Canais sociais da Officina 404">
+                    <li>
+                        <a href="https://github.com/hard87" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Officina 404 (abre em nova aba)">
+                            <span aria-hidden="true">GH</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/juniorgodoi87" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Junior Godoi (abre em nova aba)">
+                            <span aria-hidden="true">in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contato@officina404.com.br" aria-label="Enviar email para Officina 404">
+                            <span aria-hidden="true">@</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-meta">
+                <p>&copy; 2026 Officina 404 - Junior Godoi. Todos os direitos reservados.</p>
+                <p>Do circuito ao código, com disciplina e clareza técnica.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="../js/main.js" type="module"></script>
 </body>
 </html>

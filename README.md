@@ -7,7 +7,7 @@ Esta versão refatorada prioriza clareza da proposta, estética minimalista indu
 
 ## Visão técnica
 
-- Apresentar a proposta de valor da Officina 404 em segundos, destacando áreas de atuação e projetos estratégicos.
+- Apresentar a proposta de valor da Officina 404 em segundos, destacando projetos estratégicos, blog técnico e contato direto.
 - Manter a presença de JavaScript modular (menu, formulários e animações discretas) sem recorrer a efeitos cenográficos.
 - Organizar CSS em tokens, componentes e seções para garantir consistência e facilidade de extensão futura.
 - Conservar boas práticas de SEO, semântica e acessibilidade: navegação com `aria`, foco visível, `prefers-reduced-motion` e contrastes adequados.
@@ -18,10 +18,12 @@ Esta versão refatorada prioriza clareza da proposta, estética minimalista indu
 ## Estrutura principal
 
 ```
-/index.html            ← homepage refinada com hero claro, áreas de atuação e projetos estratégicos
+/index.html            ← homepage refinada com hero claro, projetos estratégicos, blog e contato
 /css/style.css        ← tokens, base, layout, componentes, seções e utilitários organizados em blocos claros
 /js/main.js           ← ponto de entrada, controla menu, smooth scroll, formulários e inicializa os módulos
 /js/modules/         ← módulos JavaScript reutilizáveis (menu, navegação, animações, validações)
+/scripts/build-content.js ← gera cards e páginas HTML estáticas a partir de Markdown
+/assets/conteudo/     ← fonte editorial em Markdown para artigos e projetos futuros
 /404.html             ← página 404 útil e sóbria alinhada à nova identidade
 /em-construcao.html   ← placeholder técnico explicando o que está em revisão
 /assets/              ← imagens e ícones usados pela homepage e seções auxiliares
@@ -34,9 +36,25 @@ Esta versão refatorada prioriza clareza da proposta, estética minimalista indu
 
 - **Tokens:** `:root` concentra paleta escura (#04050a, #0d111a, #2ed38c, cobre), estados semânticos e espaçamentos (`--spacing-*`), bordas (`--radius-*`) e sombras.
 - **Organização:** o arquivo segue sequência lógica: tokens → reset/base → layout → header → hero → seções específicas → componentes (botões, cards, tags, formulários) → estados e utilitários.
-- **Componentização:** classes como `.btn`, `.project-card`, `.area-card`, `.evidence-card`, `.tag`, `.hero-cta` e `[data-animate]` foram projetadas para reaproveitamento.
+- **Componentização:** classes como `.btn`, `.content-grid`, `.content-card`, `.project-card`, `.blog-card`, `.hero-cta` e `[data-animate]` foram projetadas para reaproveitamento.
 - **Acessibilidade:** contém foco visível, `prefers-reduced-motion` e regras para impressão.
 - **Referência:** os tokens auditados estão documentados em `docs/design-system.md`.
+
+---
+
+## Conteúdo estático por Markdown
+
+- Artigos ficam em `assets/conteudo/artigos/*.md`.
+- Projetos futuros podem usar `assets/conteudo/projetos/*.md`.
+- Rode `npm run build:content` para gerar páginas HTML em `blog/` ou `projetos/`, atualizar os cards da home e renovar o `sitemap.xml`.
+- O Markdown aceita frontmatter com `title`, `heading`, `subtitle`, `description`, `author`, `displayAuthor`, `category`, `tags`, `date`, `slug`, `cover`, `coverAlt`, `status`, `featured`, `featuredOrder` e `readingTime`.
+- Itens públicos devem declarar `date`; isso evita que datas mudem por `mtime` do sistema de arquivos.
+- Use `status: "publicado"` para publicar. Outros status ficam fora das páginas geradas, cards e sitemap.
+- Use `featured: false` para manter uma página publicada fora dos cards da home.
+- Use `featuredOrder` para preservar a ordem editorial dos cards.
+- Quando não houver frontmatter para título/resumo, o build infere título pelo primeiro `#`, resumo pelo primeiro parágrafo e slug pelo nome do arquivo.
+- O build escapa HTML por padrão e renderiza um subconjunto seguro de Markdown: títulos, parágrafos, listas, tabelas, links, citações, código, blocos de código e `:::article-cta`.
+- Rode `npm run check` antes de publicar para regenerar conteúdo e validar sintaxe JS, links locais e hashes CSP.
 
 ---
 
@@ -60,15 +78,17 @@ Esta versão refatorada prioriza clareza da proposta, estética minimalista indu
 ## Publicação e segurança
 
 - As páginas usam CSP via `<meta>` como defesa mínima para hospedagem estática. Em produção, prefira enviar CSP, `X-Content-Type-Options`, `Permissions-Policy` e demais headers pela infraestrutura.
+- O build recalcula os hashes CSP de scripts inline da home automaticamente.
 - O formulário não simula entrega quando não há backend: ele valida localmente e abre um email de fallback para `contato@officina404.com.br`.
 - Para captura real, configure `data-form-endpoint` no formulário e libere o domínio correspondente em `connect-src`.
 - A página de teste local foi removida da superfície pública para evitar exposição de artefatos internos.
+- O repositório de publicação esperado é `hard87/officina404.github.io`, com GitHub Pages servindo os arquivos estáticos da raiz e mantendo o `CNAME` versionado.
 
 ---
 
 ## Próximos passos sugeridos
 
-1. Criar templates para blog e páginas de projeto reutilizando a mesma estrutura (cards, grids, tokens).
+1. Adicionar imagens específicas por artigo/projeto usando `cover` no frontmatter.
 2. Adicionar testes automáticos (lighthouse, CSS lint) para garantir contraste e performance.
 3. Integrar formulários com serviço de backend ou Netlify/Forms para captura real.
 4. Reforçar documentação de design tokens em um arquivo separado se o projeto crescer.

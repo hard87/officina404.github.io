@@ -1,41 +1,57 @@
-# Arquivos do sistema
+# Sistema operacional
 .DS_Store
 Thumbs.db
 desktop.ini
+ehthumbs.db
+Icon?
 
 # Editores
 .vscode/
 .idea/
+.history/
 *.swp
 *.swo
 *~
 
-# Node modules (se usar build tools no futuro)
+# Node e tooling local
 node_modules/
-package-lock.json
-yarn.lock
+.npm/
+.pnpm-store/
 
 # Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Arquivos temporários
+# Temporários e caches
 *.tmp
 *.temp
 .cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
 
 # Backups
 *.bak
 *.backup
 *~
 
-# Arquivos de ambiente (se usar no futuro)
+# Ambiente local
 .env
 .env.local
-.env.production
+.env.*.local
+!.env.example
 
-# Build (se usar no futuro)
+# Saídas de build externas ao site estático
 dist/
 build/
+coverage/
+.nyc_output/
+
+# Artefatos locais de inspeção/automação
+.codex-*
+*.screenshot.png
+*.har

@@ -3,6 +3,8 @@
  * Sticky header behavior and smooth hash navigation.
  */
 
+import { closeMenu, isMenuOpen } from './menu.js';
+
 function initHeaderScroll() {
     const header = document.getElementById('header');
     if (!header) {
@@ -26,8 +28,6 @@ function initHeaderScroll() {
 
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
-    const navLinks = document.querySelector('.nav-links');
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const getTargetFromHash = hash => {
@@ -71,11 +71,8 @@ function initSmoothScroll() {
                 history.pushState(null, '', `#${target.id}`);
             }
 
-            if (navLinks?.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuToggle?.classList.remove('active');
-                menuToggle?.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+            if (isMenuOpen()) {
+                closeMenu();
             }
         });
     });
