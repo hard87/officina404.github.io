@@ -138,7 +138,9 @@
     <div class="page">
       <header id="header">
         <nav class="nav container" aria-label="Navegação principal">
-          <a class="logo" href="#conteudo-principal">Officina 404</a>
+          <a class="logo" href="#conteudo-principal"
+            >Officina <span class="logo__accent">404</span></a
+          >
           <button
             class="mobile-menu-toggle"
             type="button"
@@ -162,7 +164,7 @@
       <main id="conteudo-principal">
         <section class="hero" aria-labelledby="hero-title">
           <div class="container hero__content">
-            <p class="eyebrow">Officina 404</p>
+            <p class="eyebrow">Officina <span class="logo__accent">404</span></p>
             <h1 id="hero-title">
               Laboratório independente.
             </h1>
@@ -235,58 +237,19 @@
             </div>
             <div class="projetos-grid content-grid">
               <!-- PROJECT_CARDS_START -->
-              <article class="project-card content-card" data-animate>
-                <div class="project-card__body">
-                  <h3>Plataforma de monitoramento edge</h3>
-                  <p>
-                    Gateway embarcado com ESP32, telemetria MQTT e painel web
-                    para rastrear sensores críticos e alertas.
-                  </p>
-                  <ul>
-                    <li>Documentação de APIs e fluxos de dados</li>
-                    <li>Camada de segurança com TLS mútua</li>
-                  </ul>
-                </div>
-                <div class="project-card__footer">
-                  <span class="project-tag">ESP32</span>
-                  <span class="project-tag">Observabilidade</span>
-                </div>
-              </article>
-              <article class="project-card content-card" data-animate>
-                <div class="project-card__body">
-                  <h3>Automação de infraestrutura HPE</h3>
-                  <p>
-                    Playbooks Ansible para provisionamento, monitoramento SNMP e
-                    dashboards Grafana para datacenter.
-                  </p>
-                  <ul>
-                    <li>Scripts versionados e testados</li>
-                    <li>Alertas e runbooks prévios à mudança</li>
-                  </ul>
-                </div>
-                <div class="project-card__footer">
-                  <span class="project-tag">HPE</span>
-                  <span class="project-tag">Ansible</span>
-                </div>
-              </article>
-              <article class="project-card content-card" data-animate>
-                <div class="project-card__body">
-                  <h3>Laboratório de segurança conectada</h3>
-                  <p>
-                    Ambiente dedicado a pentests, análise de rede e resposta
-                    coordenada com logs e playbooks.
-                  </p>
-                  <ul>
-                    <li>SIEM integrado e visualização clara</li>
-                    <li>Checklist de provas e evidências</li>
-                  </ul>
-                </div>
-                <div class="project-card__footer">
-                  <span class="project-tag">Segurança</span>
-                  <span class="project-tag">Observabilidade</span>
-                </div>
-              </article>
-              <!-- PROJECT_CARDS_END -->
+                        <article class="project-card content-card" data-animate>
+                            <div class="project-card__body">
+                                <h3>Fluxo</h3>
+                                <p>Plataforma para acompanhar dispositivos conectados (IoT) e transformar sinais do mundo físico em informação que ajuda a entender o que acontece. Projeto pessoal, em construção.</p>
+                            </div>
+                            <div class="project-card__footer">
+                                <span class="project-tag">IoT</span>
+                                <span class="project-tag">Telemetria</span>
+                                <span class="project-tag">Observabilidade</span>
+                            </div>
+                            <a class="blog-card__link" href="projetos/fluxo.html">Ver projeto <span class="link-arrow" aria-hidden="true">&rarr;</span></a>
+                        </article>
+                        <!-- PROJECT_CARDS_END -->
             </div>
           </div>
         </section>
@@ -519,7 +482,9 @@
         <div class="container footer-shell">
           <div class="footer-main">
             <div class="footer-brand">
-              <a class="footer-logo" href="#conteudo-principal">Officina 404</a>
+              <a class="footer-logo" href="#conteudo-principal"
+                >Officina <span class="logo__accent">404</span></a
+              >
               <p class="footer-signature">
                 Hardware, software, infraestrutura e segurança com postura
                 técnica e entrega confiável.

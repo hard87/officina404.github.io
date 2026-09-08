@@ -20,4 +20,8 @@
         <loc>https://officina404.com.br/blog/linux-anatomia-sistemas-operacionais.html</loc>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>https://officina404.com.br/projetos/fluxo.html</loc>
+        <priority>0.7</priority>
+    </url>
 </urlset>

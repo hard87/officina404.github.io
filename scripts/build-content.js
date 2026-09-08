@@ -668,6 +668,22 @@ function renderTags(item) {
     ].join('\n');
 }
 
+function indentBodyHtml(bodyHtml, pad) {
+    let insidePre = false;
+
+    return bodyHtml.split('\n').map(line => {
+        const prefix = insidePre ? '' : pad;
+
+        if (/<pre[\s>]/.test(line) && !/<\/pre>/.test(line)) {
+            insidePre = true;
+        } else if (/<\/pre>/.test(line)) {
+            insidePre = false;
+        }
+
+        return `${prefix}${line}`;
+    }).join('\n');
+}
+
 function sortFeaturedItems(items) {
     return [...items].sort((a, b) => {
         if (a.featuredOrder !== b.featuredOrder) {
@@ -742,7 +758,7 @@ function renderPage(item, collection) {
     <a class="skip-link" href="#conteudo-principal">Pular para o conteudo principal</a>
     <header id="header">
         <nav class="nav container" aria-label="Navegação principal">
-            <a class="logo" href="../index.html#conteudo-principal">Officina 404</a>
+            <a class="logo" href="../index.html#conteudo-principal">Officina <span class="logo__accent">404</span></a>
             <button class="mobile-menu-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
@@ -778,7 +794,7 @@ function renderPage(item, collection) {
         <section class="article-content">
             <div class="container article-shell">
                 <article class="article-body">
-${item.bodyHtml.split('\n').map(line => `                    ${line}`).join('\n')}
+${indentBodyHtml(item.bodyHtml, '                    ')}
 ${renderTags(item)}
                 </article>
             </div>
@@ -789,7 +805,7 @@ ${renderTags(item)}
         <div class="container footer-shell">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <a class="footer-logo" href="../index.html#conteudo-principal">Officina 404</a>
+                    <a class="footer-logo" href="../index.html#conteudo-principal">Officina <span class="logo__accent">404</span></a>
                     <p class="footer-signature">Hardware, software, infraestrutura e segurança com postura técnica e entrega confiável.</p>
                 </div>
                 <nav class="footer-links" aria-label="Links úteis do rodapé">

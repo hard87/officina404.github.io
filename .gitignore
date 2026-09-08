@@ -55,3 +55,6 @@ coverage/
 .codex-*
 *.screenshot.png
 *.har
+
+# Protótipos de referência de design (não publicáveis)
+mockups/
