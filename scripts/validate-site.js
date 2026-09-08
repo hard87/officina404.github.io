@@ -4,7 +4,9 @@ const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
-const SKIPPED_DIRS = new Set(['.git', 'node_modules']);
+// `mockups/` guarda referencias de design (protótipos com CSS/JS embutidos) e nao
+// e conteudo publicado do site, portanto fica fora da validacao de links e CSP.
+const SKIPPED_DIRS = new Set(['.git', 'node_modules', 'mockups']);
 
 function walk(dir) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
